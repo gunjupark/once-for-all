@@ -1,0 +1,149 @@
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... b' \nFor Linux 64, Open MPI is built with CUDA awareness but this support is disabled by default.\nTo enable it, please set the environmental variable OMPI_MCA_opal_cuda_support=true before\nlaunching your MPI processes. Equivalently, you can set the MCA parameter in the command line:\nmpiexec --mca opal_cuda_support 1 ...\n \n'
+done
+Ran pip subprocess with arguments:
+['/home/gunju/workspace/once-for-all/env/bin/python', '-m', 'pip', 'install', '-U', '-r', '/home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt']
+Pip subprocess output:
+Collecting mxnet-cu101mkl==1.6.*
+  Using cached mxnet_cu101mkl-1.6.0.post0-py2.py3-none-manylinux1_x86_64.whl (712.3 MB)
+Collecting tensorflow-gpu==2.1.*
+  Using cached tensorflow_gpu-2.1.1-cp37-cp37m-manylinux2010_x86_64.whl (421.8 MB)
+Collecting filelock
+  Using cached filelock-3.0.12-py3-none-any.whl (7.6 kB)
+Collecting horovod==0.20.*
+  Using cached horovod-0.20.0.tar.gz (3.2 MB)
+Collecting jupyterlab-nvdashboard==0.3.*
+  Using cached jupyterlab_nvdashboard-0.3.1-py3-none-any.whl (10.0 kB)
+Processing /home/gunju/.cache/pip/wheels/59/14/ab/6d0bce449039ebdcbf45c1aff8c19153a68bf3f0492a32620e/jupyter_tensorboard-0.2.0-py2.py3-none-any.whl
+Requirement already satisfied, skipping upgrade: numpy<2.0.0,>1.16.0 in ./env/lib/python3.7/site-packages (from mxnet-cu101mkl==1.6.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 1)) (1.19.1)
+Collecting graphviz<0.9.0,>=0.8.1
+  Using cached graphviz-0.8.4-py2.py3-none-any.whl (16 kB)
+Requirement already satisfied, skipping upgrade: requests<3,>=2.20.0 in ./env/lib/python3.7/site-packages (from mxnet-cu101mkl==1.6.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 1)) (2.24.0)
+Requirement already satisfied, skipping upgrade: absl-py>=0.7.0 in ./env/lib/python3.7/site-packages (from tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (0.10.0)
+Requirement already satisfied, skipping upgrade: protobuf>=3.8.0 in ./env/lib/python3.7/site-packages (from tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (3.13.0)
+Requirement already satisfied, skipping upgrade: six>=1.12.0 in ./env/lib/python3.7/site-packages (from tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (1.15.0)
+Collecting keras-applications>=1.0.8
+  Using cached Keras_Applications-1.0.8-py3-none-any.whl (50 kB)
+Processing /home/gunju/.cache/pip/wheels/62/76/4c/aa25851149f3f6d9785f6c869387ad82b3fd37582fa8147ac6/wrapt-1.12.1-cp37-cp37m-linux_x86_64.whl
+Collecting google-pasta>=0.1.6
+  Using cached google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Requirement already satisfied, skipping upgrade: tensorboard<2.2.0,>=2.1.0 in ./env/lib/python3.7/site-packages (from tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (2.1.1)
+Requirement already satisfied, skipping upgrade: grpcio>=1.8.6 in ./env/lib/python3.7/site-packages (from tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (1.31.0)
+Processing /home/gunju/.cache/pip/wheels/21/7f/02/420f32a803f7d0967b48dd823da3f558c5166991bfd204eef3/gast-0.2.2-py3-none-any.whl
+Processing /home/gunju/.cache/pip/wheels/3f/e3/ec/8a8336ff196023622fbcb36de0c5a5c218cbb24111d1d4c7f2/termcolor-1.1.0-py3-none-any.whl
+Collecting scipy==1.4.1; python_version >= "3"
+  Using cached scipy-1.4.1-cp37-cp37m-manylinux1_x86_64.whl (26.1 MB)
+Collecting opt-einsum>=2.3.2
+  Using cached opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+Collecting astor>=0.6.0
+  Using cached astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Collecting tensorflow-estimator<2.2.0,>=2.1.0rc0
+  Using cached tensorflow_estimator-2.1.0-py2.py3-none-any.whl (448 kB)
+Collecting keras-preprocessing==1.1.0
+  Using cached Keras_Preprocessing-1.1.0-py2.py3-none-any.whl (41 kB)
+Requirement already satisfied, skipping upgrade: wheel>=0.26; python_version >= "3" in ./env/lib/python3.7/site-packages (from tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (0.35.1)
+Collecting cloudpickle
+  Using cached cloudpickle-1.6.0-py3-none-any.whl (23 kB)
+Processing /home/gunju/.cache/pip/wheels/2d/43/97/00701864a7bee6d9e1a52dd682537dcbf1d013d0e2e6f0c1f1/psutil-5.7.2-cp37-cp37m-linux_x86_64.whl
+Processing /home/gunju/.cache/pip/wheels/5e/03/1e/e1e954795d6f35dfc7b637fe2277bff021303bd9570ecea653/PyYAML-5.3.1-cp37-cp37m-linux_x86_64.whl
+Requirement already satisfied, skipping upgrade: cffi>=1.4.0 in ./env/lib/python3.7/site-packages (from horovod==0.20.*->-r file:requirements.txt (line 3)) (1.14.3)
+Collecting jupyter-server-proxy
+  Using cached jupyter_server_proxy-1.5.0-py3-none-any.whl (18 kB)
+Processing /home/gunju/.cache/pip/wheels/49/8c/d1/6b8e1f57e542671673cb3d2faee1a9eccb36be2c08a3915498/bokeh-1.4.0-py3-none-any.whl
+Collecting pynvml
+  Using cached pynvml-8.0.4-py3-none-any.whl (36 kB)
+Requirement already satisfied, skipping upgrade: notebook>=5.0 in ./env/lib/python3.7/site-packages (from jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (6.1.4)
+Requirement already satisfied, skipping upgrade: chardet<4,>=3.0.2 in ./env/lib/python3.7/site-packages (from requests<3,>=2.20.0->mxnet-cu101mkl==1.6.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 1)) (3.0.4)
+Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in ./env/lib/python3.7/site-packages (from requests<3,>=2.20.0->mxnet-cu101mkl==1.6.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 1)) (2020.6.20)
+Requirement already satisfied, skipping upgrade: idna<3,>=2.5 in ./env/lib/python3.7/site-packages (from requests<3,>=2.20.0->mxnet-cu101mkl==1.6.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 1)) (2.10)
+Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in ./env/lib/python3.7/site-packages (from requests<3,>=2.20.0->mxnet-cu101mkl==1.6.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 1)) (1.25.10)
+Requirement already satisfied, skipping upgrade: setuptools in ./env/lib/python3.7/site-packages (from protobuf>=3.8.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (49.6.0.post20200917)
+Collecting h5py
+  Using cached h5py-2.10.0-cp37-cp37m-manylinux1_x86_64.whl (2.9 MB)
+Requirement already satisfied, skipping upgrade: markdown>=2.6.8 in ./env/lib/python3.7/site-packages (from tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (3.2.2)
+Requirement already satisfied, skipping upgrade: google-auth<2,>=1.6.3 in ./env/lib/python3.7/site-packages (from tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (1.21.2)
+Requirement already satisfied, skipping upgrade: werkzeug>=0.11.15 in ./env/lib/python3.7/site-packages (from tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (1.0.1)
+Requirement already satisfied, skipping upgrade: google-auth-oauthlib<0.5,>=0.4.1 in ./env/lib/python3.7/site-packages (from tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (0.4.1)
+Requirement already satisfied, skipping upgrade: pycparser in ./env/lib/python3.7/site-packages (from cffi>=1.4.0->horovod==0.20.*->-r file:requirements.txt (line 3)) (2.20)
+Processing /home/gunju/.cache/pip/wheels/6d/02/72/27a10faccec8d314aa88ac6c099e11ab704497beaaf26a24f9/simpervisor-0.3-py3-none-any.whl
+Collecting aiohttp
+  Using cached aiohttp-3.6.2-cp37-cp37m-manylinux1_x86_64.whl (1.2 MB)
+Requirement already satisfied, skipping upgrade: pillow>=4.0 in ./env/lib/python3.7/site-packages (from bokeh<2->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (7.2.0)
+Requirement already satisfied, skipping upgrade: Jinja2>=2.7 in ./env/lib/python3.7/site-packages (from bokeh<2->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (2.11.2)
+Requirement already satisfied, skipping upgrade: packaging>=16.8 in ./env/lib/python3.7/site-packages (from bokeh<2->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (20.4)
+Requirement already satisfied, skipping upgrade: tornado>=4.3 in ./env/lib/python3.7/site-packages (from bokeh<2->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (6.0.4)
+Requirement already satisfied, skipping upgrade: python-dateutil>=2.1 in ./env/lib/python3.7/site-packages (from bokeh<2->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (2.8.1)
+Requirement already satisfied, skipping upgrade: nbconvert in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (6.0.5)
+Requirement already satisfied, skipping upgrade: jupyter-client>=5.3.4 in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (6.1.7)
+Requirement already satisfied, skipping upgrade: ipykernel in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (5.3.4)
+Requirement already satisfied, skipping upgrade: ipython-genutils in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.2.0)
+Requirement already satisfied, skipping upgrade: Send2Trash in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied, skipping upgrade: argon2-cffi in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (20.1.0)
+Requirement already satisfied, skipping upgrade: pyzmq>=17 in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (19.0.2)
+Requirement already satisfied, skipping upgrade: traitlets>=4.2.1 in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (5.0.4)
+Requirement already satisfied, skipping upgrade: nbformat in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (5.0.7)
+Requirement already satisfied, skipping upgrade: prometheus-client in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.8.0)
+Requirement already satisfied, skipping upgrade: jupyter-core>=4.6.1 in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (4.6.3)
+Requirement already satisfied, skipping upgrade: terminado>=0.8.3 in ./env/lib/python3.7/site-packages (from notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.9.1)
+Requirement already satisfied, skipping upgrade: importlib-metadata; python_version < "3.8" in ./env/lib/python3.7/site-packages (from markdown>=2.6.8->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (1.7.0)
+Requirement already satisfied, skipping upgrade: pyasn1-modules>=0.2.1 in ./env/lib/python3.7/site-packages (from google-auth<2,>=1.6.3->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (0.2.7)
+Requirement already satisfied, skipping upgrade: rsa<5,>=3.1.4; python_version >= "3.5" in ./env/lib/python3.7/site-packages (from google-auth<2,>=1.6.3->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (4.6)
+Requirement already satisfied, skipping upgrade: cachetools<5.0,>=2.0.0 in ./env/lib/python3.7/site-packages (from google-auth<2,>=1.6.3->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (4.1.1)
+Requirement already satisfied, skipping upgrade: requests-oauthlib>=0.7.0 in ./env/lib/python3.7/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (1.3.0)
+Collecting yarl<2.0,>=1.0
+  Using cached yarl-1.5.1-cp37-cp37m-manylinux1_x86_64.whl (258 kB)
+Collecting async-timeout<4.0,>=3.0
+  Using cached async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Collecting multidict<5.0,>=4.5
+  Using cached multidict-4.7.6-cp37-cp37m-manylinux1_x86_64.whl (149 kB)
+Requirement already satisfied, skipping upgrade: attrs>=17.3.0 in ./env/lib/python3.7/site-packages (from aiohttp->jupyter-server-proxy->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (20.2.0)
+Requirement already satisfied, skipping upgrade: MarkupSafe>=0.23 in ./env/lib/python3.7/site-packages (from Jinja2>=2.7->bokeh<2->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (1.1.1)
+Requirement already satisfied, skipping upgrade: pyparsing>=2.0.2 in ./env/lib/python3.7/site-packages (from packaging>=16.8->bokeh<2->jupyterlab-nvdashboard==0.3.*->-r file:requirements.txt (line 4)) (2.4.7)
+Requirement already satisfied, skipping upgrade: nbclient<0.6.0,>=0.5.0 in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.5.0)
+Requirement already satisfied, skipping upgrade: pygments>=2.4.1 in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (2.7.1)
+Requirement already satisfied, skipping upgrade: entrypoints>=0.2.2 in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.3)
+Requirement already satisfied, skipping upgrade: jupyterlab-pygments in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.1.1)
+Requirement already satisfied, skipping upgrade: mistune<2,>=0.8.1 in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.8.4)
+Requirement already satisfied, skipping upgrade: defusedxml in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.6.0)
+Requirement already satisfied, skipping upgrade: pandocfilters>=1.4.1 in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (1.4.2)
+Requirement already satisfied, skipping upgrade: testpath in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.4.4)
+Requirement already satisfied, skipping upgrade: bleach in ./env/lib/python3.7/site-packages (from nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (3.2.1)
+Requirement already satisfied, skipping upgrade: ipython>=5.0.0 in ./env/lib/python3.7/site-packages (from ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (7.18.1)
+Requirement already satisfied, skipping upgrade: jsonschema!=2.5.0,>=2.4 in ./env/lib/python3.7/site-packages (from nbformat->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (3.2.0)
+Requirement already satisfied, skipping upgrade: ptyprocess; os_name != "nt" in ./env/lib/python3.7/site-packages (from terminado>=0.8.3->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.6.0)
+Requirement already satisfied, skipping upgrade: zipp>=0.5 in ./env/lib/python3.7/site-packages (from importlib-metadata; python_version < "3.8"->markdown>=2.6.8->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (3.1.0)
+Requirement already satisfied, skipping upgrade: pyasn1<0.5.0,>=0.4.6 in ./env/lib/python3.7/site-packages (from pyasn1-modules>=0.2.1->google-auth<2,>=1.6.3->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (0.4.8)
+Requirement already satisfied, skipping upgrade: oauthlib>=3.0.0 in ./env/lib/python3.7/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.2.0,>=2.1.0->tensorflow-gpu==2.1.*->-r /home/gunju/workspace/once-for-all/condaenv.wafvvhsl.requirements.txt (line 2)) (3.0.1)
+Collecting typing-extensions>=3.7.4; python_version < "3.8"
+  Using cached typing_extensions-3.7.4.3-py3-none-any.whl (22 kB)
+Requirement already satisfied, skipping upgrade: nest-asyncio in ./env/lib/python3.7/site-packages (from nbclient<0.6.0,>=0.5.0->nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (1.4.0)
+Requirement already satisfied, skipping upgrade: async-generator in ./env/lib/python3.7/site-packages (from nbclient<0.6.0,>=0.5.0->nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (1.10)
+Requirement already satisfied, skipping upgrade: webencodings in ./env/lib/python3.7/site-packages (from bleach->nbconvert->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.5.1)
+Requirement already satisfied, skipping upgrade: backcall in ./env/lib/python3.7/site-packages (from ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.2.0)
+Requirement already satisfied, skipping upgrade: prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 in ./env/lib/python3.7/site-packages (from ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (3.0.7)
+Requirement already satisfied, skipping upgrade: decorator in ./env/lib/python3.7/site-packages (from ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (4.4.2)
+Requirement already satisfied, skipping upgrade: pexpect>4.3; sys_platform != "win32" in ./env/lib/python3.7/site-packages (from ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (4.8.0)
+Requirement already satisfied, skipping upgrade: pickleshare in ./env/lib/python3.7/site-packages (from ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.7.5)
+Requirement already satisfied, skipping upgrade: jedi>=0.10 in ./env/lib/python3.7/site-packages (from ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.17.2)
+Requirement already satisfied, skipping upgrade: pyrsistent>=0.14.0 in ./env/lib/python3.7/site-packages (from jsonschema!=2.5.0,>=2.4->nbformat->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.17.3)
+Requirement already satisfied, skipping upgrade: wcwidth in ./env/lib/python3.7/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0->ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.2.5)
+Requirement already satisfied, skipping upgrade: parso<0.8.0,>=0.7.0 in ./env/lib/python3.7/site-packages (from jedi>=0.10->ipython>=5.0.0->ipykernel->notebook>=5.0->jupyter-tensorboard==0.2.*->-r file:requirements.txt (line 5)) (0.7.1)
+Skipping wheel build for horovod, due to binaries being disabled for it.
+Installing collected packages: graphviz, mxnet-cu101mkl, h5py, keras-applications, wrapt, google-pasta, gast, termcolor, scipy, opt-einsum, astor, tensorflow-estimator, keras-preprocessing, tensorflow-gpu, filelock, cloudpickle, psutil, pyyaml, horovod, simpervisor, multidict, typing-extensions, yarl, async-timeout, aiohttp, jupyter-server-proxy, bokeh, pynvml, jupyterlab-nvdashboard, jupyter-tensorboard
+    Running setup.py install for horovod: started
+    Running setup.py install for horovod: still running...
+    Running setup.py install for horovod: finished with status 'done'
+Successfully installed aiohttp-3.6.2 astor-0.8.1 async-timeout-3.0.1 bokeh-1.4.0 cloudpickle-1.6.0 filelock-3.0.12 gast-0.2.2 google-pasta-0.2.0 graphviz-0.8.4 h5py-2.10.0 horovod-0.20.0 jupyter-server-proxy-1.5.0 jupyter-tensorboard-0.2.0 jupyterlab-nvdashboard-0.3.1 keras-applications-1.0.8 keras-preprocessing-1.1.0 multidict-4.7.6 mxnet-cu101mkl-1.6.0.post0 opt-einsum-3.3.0 psutil-5.7.2 pynvml-8.0.4 pyyaml-5.3.1 scipy-1.4.1 simpervisor-0.3 tensorflow-estimator-2.1.0 tensorflow-gpu-2.1.1 termcolor-1.1.0 typing-extensions-3.7.4.3 wrapt-1.12.1 yarl-1.5.1
+
+#
+# To activate this environment, use
+#
+#     $ conda activate /home/gunju/workspace/once-for-all/env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+

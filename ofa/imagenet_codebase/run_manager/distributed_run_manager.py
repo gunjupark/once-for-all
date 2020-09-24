@@ -345,7 +345,8 @@ class DistributedRunManager:
         if net is None:
             net = self.net
         num_gpu = hvd.size()
-        n_images = 2000
+        #n_images = 2000
+        n_images = 1000
         batch_size = (math.ceil(n_images / num_gpu) // 8 + 1) * 8
         n_images = batch_size * num_gpu
         sub_train_loader = self.run_config.random_sub_train_loader(n_images, batch_size,
