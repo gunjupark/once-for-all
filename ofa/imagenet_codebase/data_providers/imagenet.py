@@ -15,7 +15,7 @@ from ofa.imagenet_codebase.data_providers.base_provider import DataProvider, MyR
 
 
 class ImagenetDataProvider(DataProvider):
-    DEFAULT_PATH = '/home/gunju/dataset/imagenet'
+    DEFAULT_PATH = '/home/gunju/dataset/imagenette2'
     
     def __init__(self, save_path=None, train_batch_size=256, test_batch_size=512, valid_size=None, n_worker=32,
                  resize_scale=0.08, distort_color=None, image_size=224,
@@ -55,6 +55,7 @@ class ImagenetDataProvider(DataProvider):
                 valid_size = int(len(train_dataset.samples) * valid_size)
             
             valid_dataset = self.train_dataset(valid_transforms)
+
             train_indexes, valid_indexes = self.random_sample_valid_set(len(train_dataset.samples), valid_size)
             
             if num_replicas is not None:
@@ -102,7 +103,7 @@ class ImagenetDataProvider(DataProvider):
     
     @staticmethod
     def name():
-        return 'imagenet'
+        return 'imagenette'
     
     @property
     def data_shape(self):
@@ -110,7 +111,7 @@ class ImagenetDataProvider(DataProvider):
     
     @property
     def n_classes(self):
-        return 1000
+        return 10
     
     @property
     def save_path(self):

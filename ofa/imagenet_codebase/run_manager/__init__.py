@@ -11,10 +11,12 @@ from .run_manager import RunManager
 # from .distributed_run_manager import DistributedMetric, DistributedRunManager
 
 
+#NOTE(gunju) : imagenet -> imagenette
+
 class ImagenetRunConfig(RunConfig):
 
     def __init__(self, n_epochs=150, init_lr=0.05, lr_schedule_type='cosine', lr_schedule_param=None,
-                 dataset='imagenet', train_batch_size=256, test_batch_size=500, valid_size=None,
+                 dataset='imagenette', train_batch_size=256, test_batch_size=500, valid_size=None,
                  opt_type='sgd', opt_param=None, weight_decay=4e-5, label_smoothing=0.1, no_decay_keys=None,
                  mixup_alpha=None,
                  model_init='he_fout', validation_frequency=1, print_frequency=10,
@@ -47,10 +49,11 @@ class ImagenetRunConfig(RunConfig):
         return self.__dict__['_data_provider']
 
 
+#NOTE(gunju) : imagenet -> imagenette
 class DistributedImageNetRunConfig(ImagenetRunConfig):
 
     def __init__(self, n_epochs=150, init_lr=0.05, lr_schedule_type='cosine', lr_schedule_param=None,
-                 dataset='imagenet', train_batch_size=64, test_batch_size=64, valid_size=None,
+                 dataset='imagenette', train_batch_size=64, test_batch_size=64, valid_size=None,
                  opt_type='sgd', opt_param=None, weight_decay=4e-5, label_smoothing=0.1, no_decay_keys=None,
                  mixup_alpha=None,
                  model_init='he_fout', validation_frequency=1, print_frequency=10,

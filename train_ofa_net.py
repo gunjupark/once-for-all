@@ -79,7 +79,7 @@ args.manual_seed = 0
 
 args.lr_schedule_type = 'cosine'
 
-args.base_batch_size = 64
+args.base_batch_size = 128
 args.valid_size = 10000
 
 args.opt_type = 'sgd'
