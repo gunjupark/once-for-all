@@ -9,10 +9,10 @@ import torch
 
 from ofa.elastic_nn.modules.dynamic_layers import DynamicMBConvLayer, DynamicConvLayer, DynamicLinearLayer
 from ofa.layers import ConvLayer, IdentityLayer, LinearLayer, MBInvertedConvLayer
-from ofa.imagenet_codebase.networks.mobilenet_v3 import MobileNetV3, MobileInvertedResidualBlock
+from ofa.imagenet_codebase.networks.mobilenet_v3_bp import MobileNetV3_BP, MobileInvertedResidualBlock
 from ofa.imagenet_codebase.utils import make_divisible, int2list
 
-
+# TODO : input param will be added (gunju)
 class OFAMobileNetV3_BP(MobileNetV3_BP):
 
     def __init__(self, n_classes=1000, bn_param=(0.1, 1e-5), dropout_rate=0.1, base_stage_width=None,
@@ -30,6 +30,11 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
         self.depth_list.sort()
 
         base_stage_width = [16, 24, 40, 80, 112, 160, 960, 1280]
+
+        # TODO : dynamic middle feature map size fixing should be impl! (gunju)
+
+        # TEMP : Input resolution = 224 fixed
+        base_feature_size = [12544, 3136, 784, 196, 196, 49]
 
         final_expand_width = [
             make_divisible(base_stage_width[-2] * max(self.width_mult_list), 8) for _ in self.width_mult_list
@@ -71,15 +76,18 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
             )
         first_block = MobileInvertedResidualBlock(first_block_conv, IdentityLayer(input_channel, input_channel))
 
-
+        # first aux classifier
+        aux_classifiers = [LinearLayer(
+                int(base_feature_size[0]*max(input_channel)), n_classes, bias=True, dropout_rate = dropout_rate)]  # added for bpnet(gunju)
 
         # inverted residual blocks
-        aux_classifiers = []  # added for bpnet(gunju)
-
         self.block_group_info = []
         blocks = [first_block]
         _block_index = 1
         feature_dim = input_channel
+
+        # for aux_classifier
+        stage_id = 1
 
         for width, n_block, s, act_func, use_se in zip(width_list[1:], n_block_list[1:],
                                                        stride_stages[1:], act_stages[1:], se_stages[1:]):
@@ -103,14 +111,16 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
                 blocks.append(MobileInvertedResidualBlock(mobile_inverted_conv, shortcut))
                 feature_dim = output_channel
 
-                aux_classifiers.append(LinearLayer(
-                        output_channel, n_classes, bias=True, dropout_rate=dropout_rate)
-                    )
+            # NOTE : aux's Linear input = (input_feature)W*H*C
+            aux_classifiers.append(LinearLayer(
+                    base_feature_size[stage_id] * max(output_channel), n_classes, bias=True, dropout_rate=dropout_rate)
+                )
+            stage_id += 1
 
         # final expand layer, feature mix layer & classifier
         if len(final_expand_width) == 1:
             final_expand_layer = ConvLayer(max(feature_dim), max(final_expand_width), kernel_size=1, act_func='h_swish')
-            feature_mix_layer = ConvLayer(ty
+            feature_mix_layer = ConvLayer(
                 max(final_expand_width), max(last_channel), kernel_size=1, bias=False, use_bn=False, act_func='h_swish',
             )
         else:
@@ -147,7 +157,7 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
         # first block
         x = self.blocks[0](x)
 
-        output = [self.aux_classifiers[0](x)]
+        output = [self.aux_classifiers[0](torch.flatten(x,1))]
 
         # blocks
         for stage_id, block_idx in enumerate(self.block_group_info):
@@ -155,7 +165,7 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
             active_idx = block_idx[:depth]
             for idx in active_idx:
                 x = self.blocks[idx](x)
-            output.append(self.auxclassifiers[stage_id])
+            output.append(self.aux_classifiers[stage_id+1](torch.flatten(x,1)))
 
         x = self.final_expand_layer(x)
         x = x.mean(3, keepdim=True).mean(2, keepdim=True)  # global average pooling
@@ -175,7 +185,7 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
             active_idx = block_idx[:depth]
             for idx in active_idx:
                 _str += self.blocks[idx].module_str + '\n'
-                _str += self.aux_calssifiers[idx].module_str + '\n'
+            _str += self.aux_classifiers[stage_id+1].module_str + '\n'
 
         _str += self.final_expand_layer.module_str + '\n'
         _str += self.feature_mix_layer.module_str + '\n'

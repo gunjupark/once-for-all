@@ -22,7 +22,7 @@ class MobileNetV3_BP(MyNetwork):
         self.final_expand_layer = final_expand_layer
         self.feature_mix_layer = feature_mix_layer
         self.classifier = classifier
-        self.aux_classifiers = aux_classifiers # added for bpnet (gunju)
+        self.aux_classifiers = nn.ModuleList(aux_classifiers) # added for bpnet (gunju)
 
 
     '''
@@ -41,17 +41,25 @@ class MobileNetV3_BP(MyNetwork):
 
 #TODO : Original Mobilenet v3 + Branch aux classifier
 
+    
     '''
     @property
     def module_str(self):
+        stage_id = 1
         _str = self.first_conv.module_str + '\n'
-        for block in self.blocks:
+        for idx, block in enumerate(self.blocks):
             _str += block.module_str + '\n'
+            if idx==0 :
+                _str += aux_classifiers[0].module_str + '\n'
+            elif idx % 4 == 0:
+                _str += aux_classifiers[stage_id].module_str + '\n'
+                stage_id += 1
         _str += self.final_expand_layer.module_str + '\n'
         _str += self.feature_mix_layer.module_str + '\n'
         _str += self.classifier.module_str
         return _str
-
+    '''
+    '''
     @property
     def config(self):
         return {

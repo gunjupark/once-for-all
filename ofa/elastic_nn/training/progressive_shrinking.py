@@ -13,7 +13,7 @@ import torch
 import torch.nn.functional as F
 import horovod.torch as hvd
 
-from ofa.utils import accuracy, AverageMeter, download_url
+from ofa.utils import accuracy, accuracy_bp, AverageMeter, download_url
 from ofa.imagenet_codebase.utils import DistributedMetric, list_mean, cross_entropy_loss_with_soft_target, \
     subset_mean, int2list
 from ofa.imagenet_codebase.data_providers.base_provider import MyRandomResizedCrop
@@ -21,6 +21,60 @@ from ofa.imagenet_codebase.run_manager.distributed_run_manager import Distribute
 
 
 def validate(run_manager, epoch=0, is_test=True, image_size_list=None,
+             width_mult_list=None, ks_list=None, expand_ratio_list=None, depth_list=None, additional_setting=None):
+    dynamic_net = run_manager.net
+    if isinstance(dynamic_net, nn.DataParallel):
+        dynamic_net = dynamic_net.module
+
+    dynamic_net.eval()
+
+    if image_size_list is None:
+        image_size_list = int2list(run_manager.run_config.data_provider.image_size, 1)
+    if width_mult_list is None:
+        width_mult_list = [i for i in range(len(dynamic_net.width_mult_list))]
+    if ks_list is None:
+        ks_list = dynamic_net.ks_list
+    if expand_ratio_list is None:
+        expand_ratio_list = dynamic_net.expand_ratio_list
+    if depth_list is None:
+        depth_list = dynamic_net.depth_list
+
+    subnet_settings = []
+    for w in width_mult_list:
+        for d in depth_list:
+            for e in expand_ratio_list:
+                for k in ks_list:
+                    for img_size in image_size_list:
+                        subnet_settings.append([{
+                            'image_size': img_size,
+                            'wid': w,
+                            'd': d,
+                            'e': e,
+                            'ks': k,
+                        }, 'R%s-W%s-D%s-E%s-K%s' % (img_size, w, d, e, k)])
+    if additional_setting is not None:
+        subnet_settings += additional_setting
+
+    losses_of_subnets, top1_of_subnets, top5_of_subnets = [], [], []
+
+    valid_log = ''
+    for setting, name in subnet_settings:
+        run_manager.write_log('-' * 30 + ' Validate %s ' % name + '-' * 30, 'train', should_print=False)
+        run_manager.run_config.data_provider.assign_active_img_size(setting.pop('image_size'))
+        dynamic_net.set_active_subnet(**setting)
+        run_manager.write_log(dynamic_net.module_str, 'train', should_print=False)
+
+        run_manager.reset_running_statistics(dynamic_net)
+        loss, top1, top5 = run_manager.validate(epoch=epoch, is_test=is_test, run_str=name, net=dynamic_net)
+        losses_of_subnets.append(loss)
+        top1_of_subnets.append(top1)
+        top5_of_subnets.append(top5)
+        valid_log += '%s (%.3f), ' % (name, top1)
+
+    return list_mean(losses_of_subnets), list_mean(top1_of_subnets), list_mean(top5_of_subnets), valid_log
+
+
+def validate_bp(run_manager, epoch=0, is_test=True, image_size_list=None,
              width_mult_list=None, ks_list=None, expand_ratio_list=None, depth_list=None, additional_setting=None):
     dynamic_net = run_manager.net
     if isinstance(dynamic_net, nn.DataParallel):
@@ -133,7 +187,6 @@ def train_one_epoch(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
                     key, '%.1f' % subset_mean(val, 0) if isinstance(val, list) else val
                 ) for key, val in subnet_settings.items()]) + ' || '
 
-                # NOTE :
                 output = run_manager.net(images)
                 if args.kd_ratio == 0:
                     loss = run_manager.train_criterion(output, labels)
@@ -174,6 +227,36 @@ def train_one_epoch(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
             t.update(1)
             end = time.time()
     return losses.avg.item(), top1.avg.item(), top5.avg.item()
+
+
+# weighted loss calculate for BPNet
+# NOTE :loss weight factor(c) : [0.25, 0.5, 1.0, 2.0, 4.0]
+#       proto test : c=4.0 (fixed)
+#       loss_w = c * n * sigma(aux_idx for len(aux))
+
+def calculate_bp_loss(run_manager, outputs , labels):
+
+    weighted_loss = 0.0
+
+    #calculate loss_weight
+    loss_weights = []
+    sigma_auxidx = 0
+    c = 4.0 # fixed temporally
+
+    #sigma part
+    for i in range(len(outputs)):
+        sigma_auxidx += (i+1)
+
+    #calculate loss_weight
+    for n in range(len(outputs)):
+        loss_weights.append(c * (n+1) / sigma_auxidx)
+
+
+    # calculate weighted loss of all aux-classifiers
+    for output, lw in zip(outputs, loss_weights):
+        weighted_loss += lw*run_manager.train_criterion(output, labels)
+
+    return weighted_loss
 
 
 def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
@@ -219,8 +302,16 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
             # clear gradients
             run_manager.optimizer.zero_grad()
 
+
+            # bpnet variable(gunju)
+            #if args.bp:
+            #    w_loss_of_subnets, bp_acc1_of_subnets, bp_acc5_of_subnets= [], [] ,[] 
+            #else :
+            #    loss_of_subnets, acc1_of_subnets, acc5_of_subnets = [], [], []
+
             loss_of_subnets, acc1_of_subnets, acc5_of_subnets = [], [], []
-            # compute output
+
+            # compute outputs
             subnet_str = ''
             for _ in range(args.dynamic_batch_size):
 
@@ -236,9 +327,13 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
                 ) for key, val in subnet_settings.items()]) + ' || '
 
                 # NOTE : use aux's output list for calculate loss
-                output = run_manager.net(images)
+                outputs = run_manager.net(images)
                 if args.kd_ratio == 0:
-                    loss = run_manager.train_criterion(output, labels)
+                    if args.bp:
+                        loss = calculate_bp_loss(run_manager, outputs, labels)
+                    else :
+                        loss = run_manager.train_criterion(outputs, labels)
+
                     loss_type = 'ce'
                 else:
                     if args.kd_type == 'ce':
@@ -249,8 +344,13 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
                     loss = loss * (2 / (args.kd_ratio + 1))
                     loss_type = '%.1fkd-%s & ce' % (args.kd_ratio, args.kd_type)
 
-                # measure accuracy and record loss
-                acc1, acc5 = accuracy(output, target, topk=(1, 5))
+                # measure accuracy and record loss (consider bpnet)
+                if args.bp :
+                    res = accuracy_bp(outputs, target, topk=(1,5))
+                    acc1 = res[0]
+                    acc5 = res[1]
+                else :
+                    acc1, acc5 = accuracy(output, target, topk=(1, 5))
                 loss_of_subnets.append(loss)
                 acc1_of_subnets.append(acc1[0])
                 acc5_of_subnets.append(acc5[0])
@@ -277,13 +377,24 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
             end = time.time()
     return losses.avg.item(), top1.avg.item(), top5.avg.item()
 
+
 def train(run_manager, args, validate_func=None):
+
+    # TODO : impl needed for bpnet validate (gunju)
+    if args.bp:
+        validate_func = validate_bp
+
     if validate_func is None:
         validate_func = validate
 
     for epoch in range(run_manager.start_epoch, run_manager.run_config.n_epochs + args.warmup_epochs):
-        train_loss, train_top1, train_top5 = train_one_epoch(
-            run_manager, args, epoch, args.warmup_epochs, args.warmup_lr)
+
+        if args.bp:
+            train_loss, train_top1, train_top5 = train_one_epoch_bp(
+                run_manager, args, epoch, args.warmup_epochs, args.warmup_lr)
+        else :
+            train_loss, train_top1, train_top5 = train_one_epoch(
+                run_manager, args, epoch, args.warmup_epochs, args.warmup_lr)
 
         if (epoch + 1) % args.validation_frequency == 0:
             # validate under train mode

@@ -11,7 +11,7 @@ import horovod.torch as hvd
 import torch
 
 from ofa.elastic_nn.modules.dynamic_op import DynamicSeparableConv2d
-from ofa.elastic_nn.networks import OFAMobileNetV3
+from ofa.elastic_nn.networks import OFAMobileNetV3, OFAMobileNetV3_BP
 from ofa.imagenet_codebase.run_manager import DistributedImageNetRunConfig
 from ofa.imagenet_codebase.run_manager.distributed_run_manager import DistributedRunManager
 from ofa.imagenet_codebase.data_providers.base_provider import MyRandomResizedCrop
@@ -20,7 +20,14 @@ from ofa.elastic_nn.training.progressive_shrinking import load_models
 
 parser = argparse.ArgumentParser()
 
+parser.add_argument('--bp', action='store_true', help='train with aux')
+
 args = parser.parse_args()
+
+print(args.bp)
+
+if args.bp :
+    print("bp training start... \n")
 
 args.path = 'exp/supernet2'
 args.dynamic_batch_size = 1
@@ -54,8 +61,13 @@ args.print_frequency = 10
 args.n_worker = 8
 args.resize_scale = 0.08
 args.distort_color = 'tf'
-args.image_size = '128,160,192,224'
-args.continuous_size = True
+
+#args.image_size = '128,160,192,224'
+#args.continuous_size = True
+
+#NOTE : for test(temporally)
+args.image_size = '224'
+args.continuous_size = False
 args.not_sync_distributed_image_size = False
 
 args.bn_momentum = 0.1
@@ -122,14 +134,14 @@ if __name__ == '__main__':
     args.expand_list = [int(e) for e in args.expand_list.split(',')]
     args.depth_list = [int(d) for d in args.depth_list.split(',')]
 
-    net = OFAMobileNetV3(
+    net = OFAMobileNetV3_BP(
         n_classes=run_config.data_provider.n_classes, bn_param=(args.bn_momentum, args.bn_eps),
         dropout_rate=args.dropout, base_stage_width=args.base_stage_width, width_mult_list=args.width_mult_list,
         ks_list=args.ks_list, expand_ratio_list=args.expand_list, depth_list=args.depth_list
     )
     # teacher model
     if args.kd_ratio > 0:
-        args.teacher_model = OFAMobileNetV3(
+        args.teacher_model = OFAMobileNetV3_BP(
             n_classes=run_config.data_provider.n_classes, bn_param=(args.bn_momentum, args.bn_eps),
             dropout_rate=0, width_mult_list=1.0, ks_list=7, expand_ratio_list=6, depth_list=4,
         )
@@ -160,8 +172,8 @@ if __name__ == '__main__':
                           'expand_ratio_list': sorted({min(args.expand_list), max(args.expand_list)}),
                           'depth_list': sorted({min(net.depth_list), max(net.depth_list)})}
     validate_func_dict['ks_list'] = sorted(args.ks_list)
-    if distributed_run_manager.start_epoch == 0:
-        distributed_run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' %
-                validate(distributed_run_manager, **validate_func_dict), 'valid')
+#    if distributed_run_manager.start_epoch == 0:
+#        distributed_run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' %
+#                validate(distributed_run_manager, **validate_func_dict), 'valid')
     train(distributed_run_manager, args,
             lambda _run_manager, epoch, is_test: validate(_run_manager, epoch, is_test, **validate_func_dict))
