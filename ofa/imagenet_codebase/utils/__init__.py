@@ -45,6 +45,14 @@ def list_weighted_sum(x, weights):
 def list_mean(x):
     return list_sum(x) / len(x)
 
+def aux_list_mean(x_lists, output_len):
+    res = []
+    for i in range(output_len):
+        tmp =0
+        for x in x_lists:
+            tmp += x[i]
+        res.append(tmp/len(x_lists))
+    return res
 
 def list_mul(x):
     if len(x) == 1:

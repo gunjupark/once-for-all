@@ -13,9 +13,9 @@ import torch
 import torch.nn.functional as F
 import horovod.torch as hvd
 
-from ofa.utils import accuracy, accuracy_bp, AverageMeter, download_url
+from ofa.utils import accuracy, accuracy_bp, AverageMeter, download_url , calculate_bp_loss
 from ofa.imagenet_codebase.utils import DistributedMetric, list_mean, cross_entropy_loss_with_soft_target, \
-    subset_mean, int2list
+    subset_mean, int2list, aux_list_mean
 from ofa.imagenet_codebase.data_providers.base_provider import MyRandomResizedCrop
 from ofa.imagenet_codebase.run_manager.distributed_run_manager import DistributedRunManager
 
@@ -119,13 +119,17 @@ def validate_bp(run_manager, epoch=0, is_test=True, image_size_list=None,
         run_manager.write_log(dynamic_net.module_str, 'train', should_print=False)
 
         run_manager.reset_running_statistics(dynamic_net)
-        loss, top1, top5 = run_manager.validate(epoch=epoch, is_test=is_test, run_str=name, net=dynamic_net)
+        loss, top1_list, top5_list = run_manager.validate_bp(epoch=epoch, is_test=is_test, run_str=name, net=dynamic_net)
         losses_of_subnets.append(loss)
-        top1_of_subnets.append(top1)
-        top5_of_subnets.append(top5)
-        valid_log += '%s (%.3f), ' % (name, top1)
+        top1_of_subnets.append(top1_list)
+        top5_of_subnets.append(top5_list)
+        # log 7 classifiers (prototype)
+        valid_log += '%s (%.1f), (%.1f), (%.1f), (%.1f), (%.1f), (%.1f), (%.1f)  ' % (name, top1_list[0], top1_list[1], top1_list[2], top1_list[3], top1_list[4], top1_list[5], top1_list[6])
 
-    return list_mean(losses_of_subnets), list_mean(top1_of_subnets), list_mean(top5_of_subnets), valid_log
+    val_top1_list = aux_list_mean(top1_of_subnets, len(top1_list))
+    val_top5_list = aux_list_mean(top5_of_subnets, len(top5_list))
+
+    return list_mean(losses_of_subnets), val_top1_list, val_top5_list, valid_log
 
 
 def train_one_epoch(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
@@ -228,37 +232,6 @@ def train_one_epoch(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
             end = time.time()
     return losses.avg.item(), top1.avg.item(), top5.avg.item()
 
-
-# weighted loss calculate for BPNet
-# NOTE :loss weight factor(c) : [0.25, 0.5, 1.0, 2.0, 4.0]
-#       proto test : c=4.0 (fixed)
-#       loss_w = c * n * sigma(aux_idx for len(aux))
-
-def calculate_bp_loss(run_manager, outputs , labels):
-
-    weighted_loss = 0.0
-
-    #calculate loss_weight
-    loss_weights = []
-    sigma_auxidx = 0
-    c = 4.0 # fixed temporally
-
-    #sigma part
-    for i in range(len(outputs)):
-        sigma_auxidx += (i+1)
-
-    #calculate loss_weight
-    for n in range(len(outputs)):
-        loss_weights.append(c * (n+1) / sigma_auxidx)
-
-
-    # calculate weighted loss of all aux-classifiers
-    for output, lw in zip(outputs, loss_weights):
-        weighted_loss += lw*run_manager.train_criterion(output, labels)
-
-    return weighted_loss
-
-
 def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
     dynamic_net = run_manager.net
 
@@ -271,8 +244,15 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
 
     data_time = AverageMeter()
     losses = DistributedMetric('train_loss')
-    top1 = DistributedMetric('train_top1')
-    top5 = DistributedMetric('train_top5')
+    
+    # NOTE : modified for aux classifier's Accuracy
+    top1 , top5 = [], []
+    for i in range(len(dynamic_net.aux_classifiers)):
+        top1.append(DistributedMetric('train_aux'+str(i)+'_top1'))
+        top5.append(DistributedMetric('train_aux'+str(i)+'_top5'))
+
+    top1.append(DistributedMetric('train_main_top1'))
+    top5.append(DistributedMetric('train_main_top5'))
 
     with tqdm(total=nBatch,
               desc='Train Epoch #{}'.format(epoch + 1),
@@ -304,12 +284,9 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
 
 
             # bpnet variable(gunju)
-            #if args.bp:
-            #    w_loss_of_subnets, bp_acc1_of_subnets, bp_acc5_of_subnets= [], [] ,[] 
-            #else :
-            #    loss_of_subnets, acc1_of_subnets, acc5_of_subnets = [], [], []
 
-            loss_of_subnets, acc1_of_subnets, acc5_of_subnets = [], [], []
+            loss_of_subnets = []
+            acc1_of_subnets, acc5_of_subnets = [], [] # double list
 
             # compute outputs
             subnet_str = ''
@@ -329,11 +306,7 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
                 # NOTE : use aux's output list for calculate loss
                 outputs = run_manager.net(images)
                 if args.kd_ratio == 0:
-                    if args.bp:
-                        loss = calculate_bp_loss(run_manager, outputs, labels)
-                    else :
-                        loss = run_manager.train_criterion(outputs, labels)
-
+                    loss = calculate_bp_loss(run_manager, outputs, labels, args.wc)
                     loss_type = 'ce'
                 else:
                     if args.kd_type == 'ce':
@@ -345,27 +318,39 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
                     loss_type = '%.1fkd-%s & ce' % (args.kd_ratio, args.kd_type)
 
                 # measure accuracy and record loss (consider bpnet)
-                if args.bp :
-                    res = accuracy_bp(outputs, target, topk=(1,5))
-                    acc1 = res[0]
-                    acc5 = res[1]
-                else :
-                    acc1, acc5 = accuracy(output, target, topk=(1, 5))
+                acc_bp = accuracy_bp(outputs, target, topk=(1,5))
+
                 loss_of_subnets.append(loss)
-                acc1_of_subnets.append(acc1[0])
-                acc5_of_subnets.append(acc5[0])
+
+                acc1_list, acc5_list =[], []
+
+                for i in range(len(outputs)):
+                    acc1_list.append(acc_bp[2*i][0])
+                    acc5_list.append(acc_bp[2*i+1][0])
+
+                acc1_of_subnets.append(acc1_list)
+                acc5_of_subnets.append(acc5_list)
+
 
                 loss.backward()
             run_manager.optimizer.step()
 
             losses.update(list_mean(loss_of_subnets), images.size(0))
-            top1.update(list_mean(acc1_of_subnets), images.size(0))
-            top5.update(list_mean(acc5_of_subnets), images.size(0))
+
+            # NOTE : subnet aux accruacy list update (list_mean) - each Batch size
+            for i in range(len(outputs)):
+                top1[i].update(aux_list_mean(acc1_of_subnets, len(outputs))[i], images.size(0))
+                top5[i].update(aux_list_mean(acc5_of_subnets, len(outputs))[i], images.size(0))
+
+            top1_list , top5_list = [], []
+            for i in range(len(outputs)):
+                top1_list.append(round(top1[i].avg.item(),1))
+                top5_list.append(round(top5[i].avg.item(),1))
 
             t.set_postfix({
                 'loss': losses.avg.item(),
-                'top1': top1.avg.item(),
-                'top5': top5.avg.item(),
+                'top1': top1_list,
+                'top5': top5_list,
                 'R': images.size(2),
                 'lr': new_lr,
                 'loss_type': loss_type,
@@ -375,7 +360,7 @@ def train_one_epoch_bp(run_manager, args, epoch, warmup_epochs=0, warmup_lr=0):
             })
             t.update(1)
             end = time.time()
-    return losses.avg.item(), top1.avg.item(), top5.avg.item()
+    return losses.avg.item(), top1_list, top5_list
 
 
 def train(run_manager, args, validate_func=None):
@@ -390,7 +375,7 @@ def train(run_manager, args, validate_func=None):
     for epoch in range(run_manager.start_epoch, run_manager.run_config.n_epochs + args.warmup_epochs):
 
         if args.bp:
-            train_loss, train_top1, train_top5 = train_one_epoch_bp(
+            train_loss, train_top1_list, train_top5_list = train_one_epoch_bp(
                 run_manager, args, epoch, args.warmup_epochs, args.warmup_lr)
         else :
             train_loss, train_top1, train_top5 = train_one_epoch(
@@ -398,15 +383,24 @@ def train(run_manager, args, validate_func=None):
 
         if (epoch + 1) % args.validation_frequency == 0:
             # validate under train mode
-            val_loss, val_acc, val_acc5, _val_log = validate_func(run_manager, epoch=epoch, is_test=True)
+            if args.bp:
+                val_loss, val_acc1_list, val_acc5_list, _val_log = validate_func(run_manager, epoch=epoch, is_test=True)
+            else:
+                val_loss, val_acc, val_acc5, _val_log = validate_func(run_manager, epoch=epoch, is_test=True)
             # best_acc
-            is_best = val_acc > run_manager.best_acc
-            run_manager.best_acc = max(run_manager.best_acc, val_acc)
+            if args.bp:
+                is_best = val_acc1_list[-1] > run_manager.best_acc
+                run_manager.best_acc = max(run_manager.best_acc, val_acc1_list[-1])
+            else:
+                is_best = val_acc > run_manager.best_acc
+                run_manager.best_acc = max(run_manager.best_acc, val_acc)
             if run_manager.is_root:
-                val_log = 'Valid [{0}/{1}] loss={2:.3f}, top-1={3:.3f} ({4:.3f})'. \
-                    format(epoch + 1 - args.warmup_epochs, run_manager.run_config.n_epochs, val_loss, val_acc,
-                           run_manager.best_acc)
-                val_log += ', Train top-1 {top1:.3f}, Train loss {loss:.3f}\t'.format(top1=train_top1, loss=train_loss)
+                if args.bp:
+                    val_log = 'Valid(bp) [{0}/{1}] loss={2:.3f}, top-1={3:.3f} ({4:.3f})'.format(epoch + 1 - args.warmup_epochs, run_manager.run_config.n_epochs, val_loss, val_acc1_list[-1], run_manager.best_acc)
+                    val_log += ', Train(bp) top-1 {top1:.3f}, Train loss {loss:.3f}\t'.format(top1=train_top1_list[-1], loss=train_loss)
+                else :
+                    val_log = 'Valid [{0}/{1}] loss={2:.3f}, top-1={3:.3f} ({4:.3f})'.format(epoch + 1 - args.warmup_epochs, run_manager.run_config.n_epochs, val_loss, val_acc, run_manager.best_acc)
+                    val_log += ', Train top-1 {top1:.3f}, Train loss {loss:.3f}\t'.format(top1=train_top1, loss=train_loss)
                 val_log += _val_log
                 run_manager.write_log(val_log, 'valid', should_print=False)
 

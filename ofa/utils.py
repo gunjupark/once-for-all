@@ -19,6 +19,42 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
+
+# weighted loss calculate for BPNet
+# NOTE :loss weight factor(c) : [0.25, 0.5, 1.0, 2.0, 4.0]
+#       proto test : c=4.0 (fixed)
+#       loss_w = c * n * sigma(aux_idx for len(aux))
+
+def calculate_bp_loss(run_manager, outputs , labels, lw_factor):
+
+    weighted_loss = 0.0
+
+    #calculate loss_weight
+    loss_weights = []
+    sigma_auxidx = 0
+    #c = 4.0 # fixed temporally
+    c = lw_factor
+
+    #sigma part
+    for i in range(len(outputs)):
+        sigma_auxidx += (i+1)
+
+    #print('sigma : ' , sigma_auxidx)
+    #calculate loss_weight
+    for n in range(len(outputs)):
+        #print('n : ', n)
+        loss_weights.append(c * (n+1) / sigma_auxidx)
+
+    #print(loss_weights)
+
+    # calculate weighted loss of all aux-classifiers
+    for output, lw in zip(outputs, loss_weights):
+        weighted_loss += lw*run_manager.train_criterion(output, labels)
+
+    #print('weighted_loss : ', weighted_loss)
+    return weighted_loss
+
+
 def accuracy(output, target, topk=(1,)):
     """ Computes the precision@k for the specified values of k """
     maxk = max(topk)

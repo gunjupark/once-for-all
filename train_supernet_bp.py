@@ -21,6 +21,8 @@ from ofa.elastic_nn.training.progressive_shrinking import load_models
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--bp', action='store_true', help='train with aux')
+parser.add_argument('--wc', type=float, default=2.0, help='aux loss factor')
+parser.add_argument('--path', type=str, default='exp/temp', help='log path')
 
 args = parser.parse_args()
 
@@ -29,12 +31,13 @@ print(args.bp)
 if args.bp :
     print("bp training start... \n")
 
-args.path = 'exp/supernet2'
+#args.path = 'exp/Aux_supernet'
 args.dynamic_batch_size = 1
-args.n_epochs = 100
-args.base_lr = 8e-3
-args.warmup_epochs = 5
-args.warmup_lr = -1
+args.n_epochs = 200
+# args.base_lr = 8e-3  #  OFA_mbv3
+args.base_lr = 8e-4  #  OFA_mbv3_bp
+args.warmup_epochs = 50
+args.warmup_lr = 15e-4
 args.ks_list = '7'
 args.expand_list = '6'
 args.depth_list = '4'
@@ -47,7 +50,8 @@ args.base_batch_size = 64
 args.valid_size = 3925
 
 args.opt_type = 'sgd'
-args.momentum = 0.95
+#args.momentum = 0.95
+args.momentum = 0.8
 args.no_nesterov = False
 args.weight_decay = 3e-5
 args.label_smoothing = 0.1
@@ -164,7 +168,7 @@ if __name__ == '__main__':
 
     
     # training
-    from ofa.elastic_nn.training.progressive_shrinking import validate, train
+    from ofa.elastic_nn.training.progressive_shrinking import validate_bp, train
 
     validate_func_dict = {'image_size_list': {224} if isinstance(args.image_size, int) else sorted({160, 224}),
                           'width_mult_list': sorted({0, len(args.width_mult_list) - 1}),
@@ -176,4 +180,4 @@ if __name__ == '__main__':
 #        distributed_run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' %
 #                validate(distributed_run_manager, **validate_func_dict), 'valid')
     train(distributed_run_manager, args,
-            lambda _run_manager, epoch, is_test: validate(_run_manager, epoch, is_test, **validate_func_dict))
+            lambda _run_manager, epoch, is_test: validate_bp(_run_manager, epoch, is_test, **validate_func_dict))

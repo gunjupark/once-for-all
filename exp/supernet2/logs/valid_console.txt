@@ -106,3 +106,442 @@ Valid [92/100] loss=0.456, top-1=87.545 (87.545), Train top-1 90.711, Train loss
 Valid [93/100] loss=0.455, top-1=87.519 (87.545), Train top-1 90.693, Train loss 0.735	R160-W0-D4-E6-K7 (86.271), R224-W0-D4-E6-K7 (88.767), 
 Valid [94/100] loss=0.455, top-1=87.481 (87.545), Train top-1 91.071, Train loss 0.724	R160-W0-D4-E6-K7 (86.296), R224-W0-D4-E6-K7 (88.665), 
 Valid [95/100] loss=0.455, top-1=87.417 (87.545), Train top-1 90.765, Train loss 0.737	R160-W0-D4-E6-K7 (86.246), R224-W0-D4-E6-K7 (88.589), 
+Valid [-4/100] loss=28.597, top-1=10.927 (10.927), Train top-1 11.544, Train loss 34.203	R224-W0-D4-E6-K7 (10.927), 
+Valid [-3/100] loss=509.556, top-1=14.086 (14.086), Train top-1 11.075, Train loss 1047.681	R224-W0-D4-E6-K7 (14.086), 
+Valid [-2/100] loss=107.397, top-1=14.697 (14.697), Train top-1 13.077, Train loss 279.600	R224-W0-D4-E6-K7 (14.697), 
+Valid [-1/100] loss=41.144, top-1=16.658 (16.658), Train top-1 15.242, Train loss 73.569	R224-W0-D4-E6-K7 (16.658), 
+Valid [0/100] loss=36.997, top-1=14.646 (16.658), Train top-1 15.855, Train loss 51.409	R224-W0-D4-E6-K7 (14.646), 
+Valid [1/100] loss=31.982, top-1=11.921 (16.658), Train top-1 16.793, Train loss 41.008	R224-W0-D4-E6-K7 (11.921), 
+Valid [2/100] loss=781.021, top-1=17.652 (17.652), Train top-1 15.170, Train loss 422.415	R224-W0-D4-E6-K7 (17.652), 
+Valid [3/100] loss=1453.399, top-1=20.097 (20.097), Train top-1 18.110, Train loss 836.161	R224-W0-D4-E6-K7 (20.097), 
+Valid [4/100] loss=66121.172, top-1=24.503 (24.503), Train top-1 20.887, Train loss 9897.267	R224-W0-D4-E6-K7 (24.503), 
+Valid [5/100] loss=14247424.000, top-1=13.347 (24.503), Train top-1 14.646, Train loss 1774461.000	R224-W0-D4-E6-K7 (13.347), 
+Valid [6/100] loss=1515481600.000, top-1=14.977 (24.503), Train top-1 14.232, Train loss 298590656.000	R224-W0-D4-E6-K7 (14.977), 
+Valid [7/100] loss=41087528960.000, top-1=21.498 (24.503), Train top-1 15.945, Train loss 24360259584.000	R224-W0-D4-E6-K7 (21.498), 
+Valid [8/100] loss=9064353518420230144.000, top-1=13.398 (24.503), Train top-1 15.566, Train loss 3056327983104.000	R224-W0-D4-E6-K7 (13.398), 
+Valid [9/100] loss=2401879392780288.000, top-1=14.850 (24.503), Train top-1 18.669, Train loss 364905186197504.000	R224-W0-D4-E6-K7 (14.850), 
+Valid [10/100] loss=nan, top-1=10.061 (24.503), Train top-1 15.675, Train loss nan	R224-W0-D4-E6-K7 (10.061), 
+Valid [11/100] loss=nan, top-1=10.061 (24.503), Train top-1 10.173, Train loss nan	R224-W0-D4-E6-K7 (10.061), 
+Valid [12/100] loss=nan, top-1=10.061 (24.503), Train top-1 10.173, Train loss nan	R224-W0-D4-E6-K7 (10.061), 
+Valid [13/100] loss=nan, top-1=10.061 (24.503), Train top-1 10.173, Train loss nan	R224-W0-D4-E6-K7 (10.061), 
+Valid [14/100] loss=nan, top-1=10.061 (24.503), Train top-1 10.173, Train loss nan	R224-W0-D4-E6-K7 (10.061), 
+Valid [-4/100] loss=4.425, top-1=15.308 (15.308), Train top-1 11.815, Train loss 5.021	R224-W0-D4-E6-K7 (15.308), 
+Valid [-3/100] loss=4.253, top-1=20.402 (20.402), Train top-1 17.965, Train loss 4.852	R224-W0-D4-E6-K7 (20.402), 
+Valid [-2/100] loss=4.227, top-1=29.215 (29.215), Train top-1 24.459, Train loss 4.751	R224-W0-D4-E6-K7 (29.215), 
+Valid [-1/100] loss=3.907, top-1=36.016 (36.016), Train top-1 30.880, Train loss 4.571	R224-W0-D4-E6-K7 (36.016), 
+Valid [0/100] loss=3.906, top-1=39.098 (39.098), Train top-1 33.983, Train loss 4.461	R224-W0-D4-E6-K7 (39.098), 
+Valid [1/100] loss=3.703, top-1=42.919 (42.919), Train top-1 38.600, Train loss 4.257	R224-W0-D4-E6-K7 (42.919), 
+Valid [2/100] loss=3.495, top-1=48.268 (48.268), Train top-1 40.007, Train loss 4.232	R224-W0-D4-E6-K7 (48.268), 
+Valid [3/100] loss=3.395, top-1=52.369 (52.369), Train top-1 44.931, Train loss 4.064	R224-W0-D4-E6-K7 (52.369), 
+Valid [4/100] loss=3.296, top-1=56.139 (56.139), Train top-1 48.106, Train loss 3.958	R224-W0-D4-E6-K7 (56.139), 
+Valid [5/100] loss=3.152, top-1=58.125 (58.125), Train top-1 52.074, Train loss 3.746	R224-W0-D4-E6-K7 (58.125), 
+Valid [6/100] loss=3.060, top-1=59.017 (59.017), Train top-1 53.048, Train loss 3.619	R224-W0-D4-E6-K7 (59.017), 
+Valid [7/100] loss=3.004, top-1=61.309 (61.309), Train top-1 54.113, Train loss 3.613	R224-W0-D4-E6-K7 (61.309), 
+Valid [8/100] loss=3.039, top-1=61.589 (61.589), Train top-1 55.141, Train loss 3.504	R224-W0-D4-E6-K7 (61.589), 
+Valid [9/100] loss=2.985, top-1=62.099 (62.099), Train top-1 56.187, Train loss 3.415	R224-W0-D4-E6-K7 (62.099), 
+Valid [10/100] loss=2.873, top-1=64.544 (64.544), Train top-1 57.486, Train loss 3.381	R224-W0-D4-E6-K7 (64.544), 
+Valid [11/100] loss=2.856, top-1=66.021 (66.021), Train top-1 58.947, Train loss 3.258	R224-W0-D4-E6-K7 (66.021), 
+Valid [12/100] loss=2.759, top-1=67.066 (67.066), Train top-1 59.596, Train loss 3.193	R224-W0-D4-E6-K7 (67.066), 
+Valid [13/100] loss=2.769, top-1=67.575 (67.575), Train top-1 60.967, Train loss 3.176	R224-W0-D4-E6-K7 (67.575), 
+Valid [14/100] loss=2.840, top-1=69.791 (69.791), Train top-1 61.562, Train loss 3.143	R224-W0-D4-E6-K7 (69.791), 
+Valid [15/100] loss=2.718, top-1=69.587 (69.791), Train top-1 61.778, Train loss 3.197	R224-W0-D4-E6-K7 (69.587), 
+Valid [16/100] loss=2.631, top-1=70.148 (70.148), Train top-1 64.087, Train loss 3.042	R224-W0-D4-E6-K7 (70.148), 
+Valid [17/100] loss=2.639, top-1=70.683 (70.683), Train top-1 64.141, Train loss 3.077	R224-W0-D4-E6-K7 (70.683), 
+Valid [18/100] loss=2.707, top-1=68.976 (70.683), Train top-1 63.817, Train loss 3.143	R224-W0-D4-E6-K7 (68.976), 
+Valid [19/100] loss=2.630, top-1=70.759 (70.759), Train top-1 64.899, Train loss 3.065	R224-W0-D4-E6-K7 (70.759), 
+Valid [20/100] loss=2.580, top-1=71.523 (71.523), Train top-1 64.412, Train loss 2.991	R224-W0-D4-E6-K7 (71.523), 
+Valid [21/100] loss=2.575, top-1=71.498 (71.523), Train top-1 65.891, Train loss 2.921	R224-W0-D4-E6-K7 (71.498), 
+Valid [22/100] loss=2.498, top-1=73.459 (73.459), Train top-1 66.973, Train loss 2.868	R224-W0-D4-E6-K7 (73.459), 
+Valid [23/100] loss=2.517, top-1=72.720 (73.459), Train top-1 67.659, Train loss 2.825	R224-W0-D4-E6-K7 (72.720), 
+Valid [24/100] loss=2.476, top-1=73.077 (73.459), Train top-1 67.641, Train loss 2.855	R224-W0-D4-E6-K7 (73.077), 
+Valid [25/100] loss=2.470, top-1=73.408 (73.459), Train top-1 68.092, Train loss 2.805	R224-W0-D4-E6-K7 (73.408), 
+Valid [26/100] loss=2.496, top-1=73.357 (73.459), Train top-1 68.579, Train loss 2.796	R224-W0-D4-E6-K7 (73.357), 
+Valid [27/100] loss=2.439, top-1=74.223 (74.223), Train top-1 70.076, Train loss 2.736	R224-W0-D4-E6-K7 (74.223), 
+Valid [28/100] loss=2.418, top-1=74.631 (74.631), Train top-1 69.805, Train loss 2.743	R224-W0-D4-E6-K7 (74.631), 
+Valid [29/100] loss=2.415, top-1=74.758 (74.758), Train top-1 69.931, Train loss 2.694	R224-W0-D4-E6-K7 (74.758), 
+Valid [30/100] loss=2.374, top-1=75.471 (75.471), Train top-1 70.743, Train loss 2.690	R224-W0-D4-E6-K7 (75.471), 
+Valid [31/100] loss=2.384, top-1=74.962 (75.471), Train top-1 70.455, Train loss 2.674	R224-W0-D4-E6-K7 (74.962), 
+Valid [32/100] loss=2.362, top-1=75.930 (75.930), Train top-1 70.905, Train loss 2.625	R224-W0-D4-E6-K7 (75.930), 
+Valid [33/100] loss=2.341, top-1=75.828 (75.930), Train top-1 71.789, Train loss 2.617	R224-W0-D4-E6-K7 (75.828), 
+Valid [34/100] loss=2.362, top-1=76.566 (76.566), Train top-1 72.060, Train loss 2.593	R224-W0-D4-E6-K7 (76.566), 
+Valid [35/100] loss=2.327, top-1=76.414 (76.566), Train top-1 72.186, Train loss 2.583	R224-W0-D4-E6-K7 (76.414), 
+Valid [36/100] loss=2.274, top-1=76.847 (76.847), Train top-1 73.196, Train loss 2.560	R224-W0-D4-E6-K7 (76.847), 
+Valid [37/100] loss=2.347, top-1=76.898 (76.898), Train top-1 72.403, Train loss 2.552	R224-W0-D4-E6-K7 (76.898), 
+Valid [38/100] loss=2.289, top-1=77.433 (77.433), Train top-1 72.854, Train loss 2.526	R224-W0-D4-E6-K7 (77.433), 
+Valid [39/100] loss=2.306, top-1=77.050 (77.433), Train top-1 73.629, Train loss 2.505	R224-W0-D4-E6-K7 (77.050), 
+Valid [40/100] loss=2.287, top-1=77.662 (77.662), Train top-1 74.242, Train loss 2.457	R224-W0-D4-E6-K7 (77.662), 
+Valid [41/100] loss=2.242, top-1=77.916 (77.916), Train top-1 73.737, Train loss 2.474	R224-W0-D4-E6-K7 (77.916), 
+Valid [42/100] loss=2.235, top-1=78.146 (78.146), Train top-1 74.044, Train loss 2.456	R224-W0-D4-E6-K7 (78.146), 
+Valid [43/100] loss=2.243, top-1=78.222 (78.222), Train top-1 73.990, Train loss 2.472	R224-W0-D4-E6-K7 (78.222), 
+Valid [44/100] loss=2.213, top-1=78.426 (78.426), Train top-1 74.513, Train loss 2.434	R224-W0-D4-E6-K7 (78.426), 
+Valid [45/100] loss=2.197, top-1=77.891 (78.426), Train top-1 75.794, Train loss 2.420	R224-W0-D4-E6-K7 (77.891), 
+Valid [46/100] loss=2.188, top-1=79.088 (79.088), Train top-1 74.874, Train loss 2.423	R224-W0-D4-E6-K7 (79.088), 
+Valid [47/100] loss=2.199, top-1=78.248 (79.088), Train top-1 75.144, Train loss 2.387	R224-W0-D4-E6-K7 (78.248), 
+Valid [48/100] loss=2.184, top-1=78.833 (79.088), Train top-1 75.271, Train loss 2.368	R224-W0-D4-E6-K7 (78.833), 
+Valid [49/100] loss=2.178, top-1=79.063 (79.088), Train top-1 75.938, Train loss 2.396	R224-W0-D4-E6-K7 (79.063), 
+Valid [50/100] loss=2.157, top-1=79.292 (79.292), Train top-1 76.317, Train loss 2.394	R224-W0-D4-E6-K7 (79.292), 
+Valid [51/100] loss=2.159, top-1=79.903 (79.903), Train top-1 77.146, Train loss 2.310	R224-W0-D4-E6-K7 (79.903), 
+Valid [52/100] loss=2.149, top-1=80.311 (80.311), Train top-1 76.641, Train loss 2.344	R224-W0-D4-E6-K7 (80.311), 
+Valid [53/100] loss=2.148, top-1=80.158 (80.311), Train top-1 77.345, Train loss 2.317	R224-W0-D4-E6-K7 (80.158), 
+Valid [54/100] loss=2.123, top-1=80.005 (80.311), Train top-1 76.948, Train loss 2.311	R224-W0-D4-E6-K7 (80.005), 
+Valid [55/100] loss=2.163, top-1=78.935 (80.311), Train top-1 77.110, Train loss 2.299	R224-W0-D4-E6-K7 (78.935), 
+Valid [56/100] loss=2.151, top-1=79.139 (80.311), Train top-1 77.760, Train loss 2.302	R224-W0-D4-E6-K7 (79.139), 
+Valid [57/100] loss=2.145, top-1=79.801 (80.311), Train top-1 77.633, Train loss 2.275	R224-W0-D4-E6-K7 (79.801), 
+Valid [58/100] loss=2.139, top-1=79.394 (80.311), Train top-1 76.768, Train loss 2.314	R224-W0-D4-E6-K7 (79.394), 
+Valid [59/100] loss=2.139, top-1=79.903 (80.311), Train top-1 77.579, Train loss 2.284	R224-W0-D4-E6-K7 (79.903), 
+Valid [60/100] loss=2.131, top-1=79.903 (80.311), Train top-1 77.038, Train loss 2.291	R224-W0-D4-E6-K7 (79.903), 
+Valid [61/100] loss=2.125, top-1=80.056 (80.311), Train top-1 77.507, Train loss 2.290	R224-W0-D4-E6-K7 (80.056), 
+Valid [62/100] loss=2.125, top-1=80.031 (80.311), Train top-1 77.074, Train loss 2.290	R224-W0-D4-E6-K7 (80.031), 
+Valid [63/100] loss=2.105, top-1=79.980 (80.311), Train top-1 78.481, Train loss 2.256	R224-W0-D4-E6-K7 (79.980), 
+Valid [64/100] loss=2.092, top-1=80.311 (80.311), Train top-1 78.301, Train loss 2.242	R224-W0-D4-E6-K7 (80.311), 
+Valid [65/100] loss=2.096, top-1=80.311 (80.311), Train top-1 77.868, Train loss 2.254	R224-W0-D4-E6-K7 (80.311), 
+Valid [66/100] loss=2.086, top-1=80.565 (80.565), Train top-1 78.571, Train loss 2.220	R224-W0-D4-E6-K7 (80.565), 
+Valid [67/100] loss=2.093, top-1=80.285 (80.565), Train top-1 78.752, Train loss 2.209	R224-W0-D4-E6-K7 (80.285), 
+Valid [68/100] loss=2.084, top-1=80.871 (80.871), Train top-1 78.211, Train loss 2.244	R224-W0-D4-E6-K7 (80.871), 
+Valid [69/100] loss=2.088, top-1=80.540 (80.871), Train top-1 78.644, Train loss 2.199	R224-W0-D4-E6-K7 (80.540), 
+Valid [70/100] loss=2.082, top-1=80.667 (80.871), Train top-1 79.058, Train loss 2.199	R224-W0-D4-E6-K7 (80.667), 
+Valid [71/100] loss=2.079, top-1=80.744 (80.871), Train top-1 78.878, Train loss 2.192	R224-W0-D4-E6-K7 (80.744), 
+Valid [72/100] loss=2.073, top-1=81.253 (81.253), Train top-1 80.267, Train loss 2.145	R224-W0-D4-E6-K7 (81.253), 
+Valid [73/100] loss=2.078, top-1=80.693 (81.253), Train top-1 79.419, Train loss 2.187	R224-W0-D4-E6-K7 (80.693), 
+Valid [74/100] loss=2.064, top-1=80.897 (81.253), Train top-1 78.986, Train loss 2.169	R224-W0-D4-E6-K7 (80.897), 
+Valid [75/100] loss=2.069, top-1=80.897 (81.253), Train top-1 78.878, Train loss 2.199	R224-W0-D4-E6-K7 (80.897), 
+Valid [76/100] loss=2.064, top-1=80.973 (81.253), Train top-1 78.734, Train loss 2.181	R224-W0-D4-E6-K7 (80.973), 
+Valid [77/100] loss=2.063, top-1=80.846 (81.253), Train top-1 79.780, Train loss 2.152	R224-W0-D4-E6-K7 (80.846), 
+Valid [78/100] loss=2.056, top-1=81.049 (81.253), Train top-1 78.842, Train loss 2.173	R224-W0-D4-E6-K7 (81.049), 
+Valid [79/100] loss=2.058, top-1=80.897 (81.253), Train top-1 80.159, Train loss 2.140	R224-W0-D4-E6-K7 (80.897), 
+Valid [80/100] loss=2.062, top-1=81.279 (81.279), Train top-1 80.087, Train loss 2.137	R224-W0-D4-E6-K7 (81.279), 
+Valid [81/100] loss=2.053, top-1=81.406 (81.406), Train top-1 78.932, Train loss 2.158	R224-W0-D4-E6-K7 (81.406), 
+Valid [82/100] loss=2.054, top-1=81.100 (81.406), Train top-1 80.069, Train loss 2.142	R224-W0-D4-E6-K7 (81.100), 
+Valid [83/100] loss=2.051, top-1=81.126 (81.406), Train top-1 80.051, Train loss 2.132	R224-W0-D4-E6-K7 (81.126), 
+Valid [84/100] loss=2.051, top-1=80.922 (81.406), Train top-1 80.249, Train loss 2.140	R224-W0-D4-E6-K7 (80.922), 
+Valid [85/100] loss=2.049, top-1=81.075 (81.406), Train top-1 80.844, Train loss 2.123	R224-W0-D4-E6-K7 (81.075), 
+Valid [86/100] loss=2.049, top-1=80.998 (81.406), Train top-1 79.239, Train loss 2.161	R224-W0-D4-E6-K7 (80.998), 
+Valid [87/100] loss=2.047, top-1=81.126 (81.406), Train top-1 80.339, Train loss 2.138	R224-W0-D4-E6-K7 (81.126), 
+Valid [88/100] loss=2.044, top-1=81.151 (81.406), Train top-1 80.501, Train loss 2.118	R224-W0-D4-E6-K7 (81.151), 
+Valid [89/100] loss=2.046, top-1=81.177 (81.406), Train top-1 79.816, Train loss 2.143	R224-W0-D4-E6-K7 (81.177), 
+Valid [90/100] loss=2.042, top-1=81.100 (81.406), Train top-1 80.249, Train loss 2.132	R224-W0-D4-E6-K7 (81.100), 
+Valid [91/100] loss=2.041, top-1=81.304 (81.406), Train top-1 80.538, Train loss 2.133	R224-W0-D4-E6-K7 (81.304), 
+Valid [92/100] loss=2.042, top-1=81.406 (81.406), Train top-1 79.852, Train loss 2.131	R224-W0-D4-E6-K7 (81.406), 
+Valid [93/100] loss=2.040, top-1=81.381 (81.406), Train top-1 80.357, Train loss 2.135	R224-W0-D4-E6-K7 (81.381), 
+Valid [94/100] loss=2.040, top-1=81.406 (81.406), Train top-1 80.790, Train loss 2.108	R224-W0-D4-E6-K7 (81.406), 
+Valid [95/100] loss=2.040, top-1=81.482 (81.482), Train top-1 80.574, Train loss 2.108	R224-W0-D4-E6-K7 (81.482), 
+Valid [96/100] loss=2.040, top-1=81.381 (81.482), Train top-1 80.916, Train loss 2.114	R224-W0-D4-E6-K7 (81.381), 
+Valid [97/100] loss=2.040, top-1=81.406 (81.482), Train top-1 80.159, Train loss 2.132	R224-W0-D4-E6-K7 (81.406), 
+Valid [98/100] loss=2.040, top-1=81.381 (81.482), Train top-1 81.548, Train loss 2.081	R224-W0-D4-E6-K7 (81.381), 
+Valid [99/100] loss=2.039, top-1=81.406 (81.482), Train top-1 79.600, Train loss 2.146	R224-W0-D4-E6-K7 (81.406), 
+Valid [100/100] loss=2.039, top-1=81.381 (81.482), Train top-1 80.916, Train loss 2.127	R224-W0-D4-E6-K7 (81.381), 
+Valid [-4/100] loss=4.527, top-1=14.187 (14.187), Train top-1 12.600, Train loss 5.002	R224-W0-D4-E6-K7 (14.187), 
+Valid [-3/100] loss=4.247, top-1=24.274 (24.274), Train top-1 19.400, Train loss 4.722	R224-W0-D4-E6-K7 (24.274), 
+Valid [-2/100] loss=4.326, top-1=33.469 (33.469), Train top-1 26.000, Train loss 4.705	R224-W0-D4-E6-K7 (33.469), 
+Valid [-1/100] loss=3.986, top-1=37.417 (37.417), Train top-1 31.700, Train loss 4.582	R224-W0-D4-E6-K7 (37.417), 
+Valid [0/100] loss=3.911, top-1=39.633 (39.633), Train top-1 35.800, Train loss 4.448	R224-W0-D4-E6-K7 (39.633), 
+Valid [1/100] loss=3.792, top-1=42.766 (42.766), Train top-1 37.900, Train loss 4.201	R224-W0-D4-E6-K7 (42.766), 
+Valid [2/100] loss=3.530, top-1=49.694 (49.694), Train top-1 41.600, Train loss 4.108	R224-W0-D4-E6-K7 (49.694), 
+Valid [3/100] loss=3.420, top-1=53.948 (53.948), Train top-1 46.900, Train loss 3.931	R224-W0-D4-E6-K7 (53.948), 
+Valid [4/100] loss=3.262, top-1=57.692 (57.692), Train top-1 50.400, Train loss 3.824	R224-W0-D4-E6-K7 (57.692), 
+Valid [5/100] loss=3.407, top-1=57.234 (57.692), Train top-1 53.300, Train loss 3.673	R224-W0-D4-E6-K7 (57.234), 
+Valid [6/100] loss=3.323, top-1=59.705 (59.705), Train top-1 52.000, Train loss 3.832	R224-W0-D4-E6-K7 (59.705), 
+Valid [7/100] loss=3.087, top-1=61.437 (61.437), Train top-1 55.200, Train loss 3.591	R224-W0-D4-E6-K7 (61.437), 
+Valid [8/100] loss=3.026, top-1=63.245 (63.245), Train top-1 57.100, Train loss 3.508	R224-W0-D4-E6-K7 (63.245), 
+Valid [9/100] loss=3.082, top-1=62.965 (63.245), Train top-1 55.400, Train loss 3.533	R224-W0-D4-E6-K7 (62.965), 
+Valid [10/100] loss=2.970, top-1=65.537 (65.537), Train top-1 56.900, Train loss 3.577	R224-W0-D4-E6-K7 (65.537), 
+Valid [11/100] loss=2.952, top-1=66.454 (66.454), Train top-1 59.900, Train loss 3.325	R224-W0-D4-E6-K7 (66.454), 
+Valid [12/100] loss=2.877, top-1=67.779 (67.779), Train top-1 60.600, Train loss 3.279	R224-W0-D4-E6-K7 (67.779), 
+Valid [13/100] loss=2.903, top-1=67.983 (67.983), Train top-1 60.700, Train loss 3.289	R224-W0-D4-E6-K7 (67.983), 
+Valid [14/100] loss=2.721, top-1=70.530 (70.530), Train top-1 62.400, Train loss 3.249	R224-W0-D4-E6-K7 (70.530), 
+Valid [15/100] loss=2.724, top-1=70.912 (70.912), Train top-1 63.100, Train loss 3.142	R224-W0-D4-E6-K7 (70.912), 
+Valid [16/100] loss=2.691, top-1=71.472 (71.472), Train top-1 63.900, Train loss 3.118	R224-W0-D4-E6-K7 (71.472), 
+Valid [17/100] loss=2.624, top-1=72.695 (72.695), Train top-1 64.800, Train loss 3.044	R224-W0-D4-E6-K7 (72.695), 
+Valid [18/100] loss=2.602, top-1=71.421 (72.695), Train top-1 65.300, Train loss 3.063	R224-W0-D4-E6-K7 (71.421), 
+Valid [19/100] loss=2.658, top-1=71.625 (72.695), Train top-1 63.700, Train loss 3.158	R224-W0-D4-E6-K7 (71.625), 
+Valid [20/100] loss=2.565, top-1=73.586 (73.586), Train top-1 66.000, Train loss 2.963	R224-W0-D4-E6-K7 (73.586), 
+Valid [21/100] loss=2.581, top-1=73.586 (73.586), Train top-1 66.900, Train loss 2.877	R224-W0-D4-E6-K7 (73.586), 
+Valid [22/100] loss=2.513, top-1=74.554 (74.554), Train top-1 68.500, Train loss 2.869	R224-W0-D4-E6-K7 (74.554), 
+Valid [23/100] loss=2.514, top-1=74.300 (74.554), Train top-1 69.200, Train loss 2.803	R224-W0-D4-E6-K7 (74.300), 
+Valid [24/100] loss=2.426, top-1=76.337 (76.337), Train top-1 67.700, Train loss 2.844	R224-W0-D4-E6-K7 (76.337), 
+Valid [25/100] loss=2.420, top-1=76.057 (76.337), Train top-1 69.500, Train loss 2.782	R224-W0-D4-E6-K7 (76.057), 
+Valid [26/100] loss=2.460, top-1=75.650 (76.337), Train top-1 70.400, Train loss 2.725	R224-W0-D4-E6-K7 (75.650), 
+Valid [27/100] loss=2.408, top-1=76.286 (76.337), Train top-1 71.500, Train loss 2.690	R224-W0-D4-E6-K7 (76.286), 
+Valid [28/100] loss=2.370, top-1=76.719 (76.719), Train top-1 71.100, Train loss 2.720	R224-W0-D4-E6-K7 (76.719), 
+Valid [29/100] loss=2.364, top-1=76.770 (76.770), Train top-1 71.200, Train loss 2.639	R224-W0-D4-E6-K7 (76.770), 
+Valid [30/100] loss=2.328, top-1=77.229 (77.229), Train top-1 70.900, Train loss 2.677	R224-W0-D4-E6-K7 (77.229), 
+Valid [31/100] loss=2.343, top-1=77.534 (77.534), Train top-1 70.900, Train loss 2.657	R224-W0-D4-E6-K7 (77.534), 
+Valid [32/100] loss=2.345, top-1=77.636 (77.636), Train top-1 72.200, Train loss 2.598	R224-W0-D4-E6-K7 (77.636), 
+Valid [33/100] loss=2.316, top-1=77.560 (77.636), Train top-1 73.100, Train loss 2.599	R224-W0-D4-E6-K7 (77.560), 
+Valid [34/100] loss=2.301, top-1=77.840 (77.840), Train top-1 72.600, Train loss 2.581	R224-W0-D4-E6-K7 (77.840), 
+Valid [35/100] loss=2.296, top-1=78.171 (78.171), Train top-1 73.100, Train loss 2.550	R224-W0-D4-E6-K7 (78.171), 
+Valid [36/100] loss=2.277, top-1=78.426 (78.426), Train top-1 74.200, Train loss 2.529	R224-W0-D4-E6-K7 (78.426), 
+Valid [37/100] loss=2.268, top-1=78.935 (78.935), Train top-1 74.400, Train loss 2.519	R224-W0-D4-E6-K7 (78.935), 
+Valid [38/100] loss=2.256, top-1=78.884 (78.935), Train top-1 73.400, Train loss 2.522	R224-W0-D4-E6-K7 (78.884), 
+Valid [39/100] loss=2.326, top-1=78.732 (78.935), Train top-1 74.100, Train loss 2.479	R224-W0-D4-E6-K7 (78.732), 
+Valid [40/100] loss=2.265, top-1=78.757 (78.935), Train top-1 74.600, Train loss 2.465	R224-W0-D4-E6-K7 (78.757), 
+Valid [41/100] loss=2.223, top-1=79.699 (79.699), Train top-1 74.600, Train loss 2.433	R224-W0-D4-E6-K7 (79.699), 
+Valid [42/100] loss=2.199, top-1=79.878 (79.878), Train top-1 74.700, Train loss 2.443	R224-W0-D4-E6-K7 (79.878), 
+Valid [43/100] loss=2.181, top-1=79.750 (79.878), Train top-1 75.000, Train loss 2.433	R224-W0-D4-E6-K7 (79.750), 
+Valid [44/100] loss=2.202, top-1=79.623 (79.878), Train top-1 74.600, Train loss 2.420	R224-W0-D4-E6-K7 (79.623), 
+Valid [45/100] loss=2.170, top-1=80.107 (80.107), Train top-1 76.100, Train loss 2.405	R224-W0-D4-E6-K7 (80.107), 
+Valid [46/100] loss=2.190, top-1=79.343 (80.107), Train top-1 75.500, Train loss 2.411	R224-W0-D4-E6-K7 (79.343), 
+Valid [47/100] loss=2.176, top-1=80.056 (80.107), Train top-1 75.800, Train loss 2.368	R224-W0-D4-E6-K7 (80.056), 
+Valid [48/100] loss=2.179, top-1=79.878 (80.107), Train top-1 76.700, Train loss 2.344	R224-W0-D4-E6-K7 (79.878), 
+Valid [49/100] loss=2.157, top-1=80.082 (80.107), Train top-1 76.000, Train loss 2.397	R224-W0-D4-E6-K7 (80.082), 
+Valid [50/100] loss=2.155, top-1=80.515 (80.515), Train top-1 76.200, Train loss 2.361	R224-W0-D4-E6-K7 (80.515), 
+Valid [51/100] loss=2.148, top-1=80.362 (80.515), Train top-1 77.400, Train loss 2.311	R224-W0-D4-E6-K7 (80.362), 
+Valid [52/100] loss=2.142, top-1=80.744 (80.744), Train top-1 76.900, Train loss 2.315	R224-W0-D4-E6-K7 (80.744), 
+Valid [53/100] loss=2.126, top-1=80.387 (80.744), Train top-1 77.500, Train loss 2.299	R224-W0-D4-E6-K7 (80.387), 
+Valid [54/100] loss=2.115, top-1=80.795 (80.795), Train top-1 77.200, Train loss 2.305	R224-W0-D4-E6-K7 (80.795), 
+Valid [55/100] loss=2.135, top-1=80.387 (80.795), Train top-1 77.800, Train loss 2.279	R224-W0-D4-E6-K7 (80.387), 
+Valid [56/100] loss=2.116, top-1=80.693 (80.795), Train top-1 77.700, Train loss 2.283	R224-W0-D4-E6-K7 (80.693), 
+Valid [57/100] loss=2.111, top-1=81.151 (81.151), Train top-1 78.200, Train loss 2.260	R224-W0-D4-E6-K7 (81.151), 
+Valid [58/100] loss=2.113, top-1=81.279 (81.279), Train top-1 76.800, Train loss 2.289	R224-W0-D4-E6-K7 (81.279), 
+Valid [59/100] loss=2.103, top-1=81.228 (81.279), Train top-1 78.300, Train loss 2.253	R224-W0-D4-E6-K7 (81.228), 
+Valid [60/100] loss=2.112, top-1=81.049 (81.279), Train top-1 78.100, Train loss 2.257	R224-W0-D4-E6-K7 (81.049), 
+Valid [61/100] loss=2.097, top-1=80.820 (81.279), Train top-1 77.500, Train loss 2.260	R224-W0-D4-E6-K7 (80.820), 
+Valid [62/100] loss=2.089, top-1=80.718 (81.279), Train top-1 77.600, Train loss 2.272	R224-W0-D4-E6-K7 (80.718), 
+Valid [63/100] loss=2.069, top-1=81.304 (81.304), Train top-1 78.700, Train loss 2.221	R224-W0-D4-E6-K7 (81.304), 
+Valid [64/100] loss=2.079, top-1=81.151 (81.304), Train top-1 79.000, Train loss 2.222	R224-W0-D4-E6-K7 (81.151), 
+Valid [65/100] loss=2.080, top-1=81.381 (81.381), Train top-1 77.900, Train loss 2.253	R224-W0-D4-E6-K7 (81.381), 
+Valid [66/100] loss=2.069, top-1=81.814 (81.814), Train top-1 79.100, Train loss 2.193	R224-W0-D4-E6-K7 (81.814), 
+Valid [67/100] loss=2.061, top-1=81.915 (81.915), Train top-1 79.000, Train loss 2.210	R224-W0-D4-E6-K7 (81.915), 
+Valid [68/100] loss=2.062, top-1=81.508 (81.915), Train top-1 79.100, Train loss 2.211	R224-W0-D4-E6-K7 (81.508), 
+Valid [69/100] loss=2.063, top-1=81.482 (81.915), Train top-1 80.300, Train loss 2.160	R224-W0-D4-E6-K7 (81.482), 
+Valid [70/100] loss=2.063, top-1=81.100 (81.915), Train top-1 78.900, Train loss 2.190	R224-W0-D4-E6-K7 (81.100), 
+Valid [71/100] loss=2.056, top-1=81.100 (81.915), Train top-1 79.500, Train loss 2.177	R224-W0-D4-E6-K7 (81.100), 
+Valid [72/100] loss=2.059, top-1=80.667 (81.915), Train top-1 80.100, Train loss 2.139	R224-W0-D4-E6-K7 (80.667), 
+Valid [73/100] loss=2.054, top-1=81.304 (81.915), Train top-1 79.900, Train loss 2.161	R224-W0-D4-E6-K7 (81.304), 
+Valid [74/100] loss=2.049, top-1=81.100 (81.915), Train top-1 79.800, Train loss 2.143	R224-W0-D4-E6-K7 (81.100), 
+Valid [75/100] loss=2.048, top-1=81.304 (81.915), Train top-1 79.400, Train loss 2.194	R224-W0-D4-E6-K7 (81.304), 
+Valid [76/100] loss=2.052, top-1=81.253 (81.915), Train top-1 79.900, Train loss 2.157	R224-W0-D4-E6-K7 (81.253), 
+Valid [77/100] loss=2.051, top-1=81.533 (81.915), Train top-1 80.000, Train loss 2.141	R224-W0-D4-E6-K7 (81.533), 
+Valid [78/100] loss=2.041, top-1=81.482 (81.915), Train top-1 80.100, Train loss 2.156	R224-W0-D4-E6-K7 (81.482), 
+Valid [79/100] loss=2.042, top-1=81.151 (81.915), Train top-1 80.600, Train loss 2.132	R224-W0-D4-E6-K7 (81.151), 
+Valid [80/100] loss=2.037, top-1=81.864 (81.915), Train top-1 80.400, Train loss 2.120	R224-W0-D4-E6-K7 (81.864), 
+Valid [81/100] loss=2.032, top-1=81.839 (81.915), Train top-1 80.300, Train loss 2.122	R224-W0-D4-E6-K7 (81.839), 
+Valid [82/100] loss=2.036, top-1=81.737 (81.915), Train top-1 80.800, Train loss 2.129	R224-W0-D4-E6-K7 (81.737), 
+Valid [83/100] loss=2.037, top-1=81.661 (81.915), Train top-1 81.500, Train loss 2.110	R224-W0-D4-E6-K7 (81.661), 
+Valid [84/100] loss=2.035, top-1=81.610 (81.915), Train top-1 80.500, Train loss 2.127	R224-W0-D4-E6-K7 (81.610), 
+Valid [85/100] loss=2.031, top-1=81.890 (81.915), Train top-1 80.700, Train loss 2.106	R224-W0-D4-E6-K7 (81.890), 
+Valid [86/100] loss=2.031, top-1=82.017 (82.017), Train top-1 79.800, Train loss 2.144	R224-W0-D4-E6-K7 (82.017), 
+Valid [87/100] loss=2.030, top-1=81.992 (82.017), Train top-1 80.400, Train loss 2.136	R224-W0-D4-E6-K7 (81.992), 
+Valid [88/100] loss=2.028, top-1=81.661 (82.017), Train top-1 80.400, Train loss 2.121	R224-W0-D4-E6-K7 (81.661), 
+Valid [89/100] loss=2.029, top-1=81.788 (82.017), Train top-1 81.200, Train loss 2.114	R224-W0-D4-E6-K7 (81.788), 
+Valid [90/100] loss=2.028, top-1=81.966 (82.017), Train top-1 80.200, Train loss 2.124	R224-W0-D4-E6-K7 (81.966), 
+Valid [91/100] loss=2.026, top-1=81.941 (82.017), Train top-1 80.500, Train loss 2.121	R224-W0-D4-E6-K7 (81.941), 
+Valid [92/100] loss=2.027, top-1=81.915 (82.017), Train top-1 80.800, Train loss 2.112	R224-W0-D4-E6-K7 (81.915), 
+Valid [93/100] loss=2.027, top-1=81.890 (82.017), Train top-1 80.200, Train loss 2.140	R224-W0-D4-E6-K7 (81.890), 
+Valid [94/100] loss=2.026, top-1=81.915 (82.017), Train top-1 81.600, Train loss 2.082	R224-W0-D4-E6-K7 (81.915), 
+Valid [95/100] loss=2.025, top-1=81.839 (82.017), Train top-1 80.900, Train loss 2.091	R224-W0-D4-E6-K7 (81.839), 
+Valid [96/100] loss=2.025, top-1=81.814 (82.017), Train top-1 81.100, Train loss 2.095	R224-W0-D4-E6-K7 (81.814), 
+Valid [97/100] loss=2.025, top-1=81.864 (82.017), Train top-1 80.500, Train loss 2.112	R224-W0-D4-E6-K7 (81.864), 
+Valid [98/100] loss=2.025, top-1=81.839 (82.017), Train top-1 80.900, Train loss 2.083	R224-W0-D4-E6-K7 (81.839), 
+Valid [99/100] loss=2.025, top-1=81.839 (82.017), Train top-1 80.300, Train loss 2.124	R224-W0-D4-E6-K7 (81.839), 
+Valid [100/100] loss=2.025, top-1=81.814 (82.017), Train top-1 80.900, Train loss 2.110	R224-W0-D4-E6-K7 (81.814), 
+Valid(bp) [-4/100] loss=4.535, top-1=14.300 (14.300), Train(bp) top-1 11.700, Train loss 4.951	R224-W0-D4-E6-K7 (14.300), 
+Valid(bp) [-3/100] loss=4.403, top-1=29.400 (29.400), Train(bp) top-1 18.800, Train loss 4.641	R224-W0-D4-E6-K7 (29.400), 
+Valid(bp) [-2/100] loss=4.207, top-1=33.900 (33.900), Train(bp) top-1 27.900, Train loss 4.568	R224-W0-D4-E6-K7 (33.900), 
+Valid(bp) [-1/100] loss=3.904, top-1=38.600 (38.600), Train(bp) top-1 34.300, Train loss 4.407	R224-W0-D4-E6-K7 (38.600), 
+Valid(bp) [0/100] loss=3.700, top-1=43.800 (43.800), Train(bp) top-1 39.600, Train loss 4.316	R224-W0-D4-E6-K7 (43.800), 
+Valid(bp) [1/100] loss=3.842, top-1=48.000 (48.000), Train(bp) top-1 42.500, Train loss 4.121	R224-W0-D4-E6-K7 (48.000), 
+Valid(bp) [2/100] loss=3.577, top-1=52.800 (52.800), Train(bp) top-1 45.300, Train loss 4.060	R224-W0-D4-E6-K7 (52.800), 
+Valid(bp) [3/100] loss=3.368, top-1=56.100 (56.100), Train(bp) top-1 49.300, Train loss 3.932	R224-W0-D4-E6-K7 (56.100), 
+Valid(bp) [4/100] loss=3.285, top-1=57.300 (57.300), Train(bp) top-1 52.300, Train loss 3.743	R224-W0-D4-E6-K7 (57.300), 
+Valid(bp) [5/100] loss=3.168, top-1=61.100 (61.100), Train(bp) top-1 54.000, Train loss 3.678	R224-W0-D4-E6-K7 (61.100), 
+Valid(bp) [6/100] loss=3.124, top-1=63.900 (63.900), Train(bp) top-1 55.500, Train loss 3.478	R224-W0-D4-E6-K7 (63.900), 
+Valid(bp) [7/100] loss=3.085, top-1=62.200 (63.900), Train(bp) top-1 55.200, Train loss 3.646	R224-W0-D4-E6-K7 (62.200), 
+Valid(bp) [8/100] loss=2.967, top-1=64.200 (64.200), Train(bp) top-1 57.300, Train loss 3.500	R224-W0-D4-E6-K7 (64.200), 
+Valid(bp) [9/100] loss=2.904, top-1=66.900 (66.900), Train(bp) top-1 58.700, Train loss 3.374	R224-W0-D4-E6-K7 (66.900), 
+Valid(bp) [10/100] loss=2.852, top-1=68.000 (68.000), Train(bp) top-1 59.300, Train loss 3.305	R224-W0-D4-E6-K7 (68.000), 
+Valid(bp) [11/100] loss=2.875, top-1=68.000 (68.000), Train(bp) top-1 60.800, Train loss 3.251	R224-W0-D4-E6-K7 (68.000), 
+Valid(bp) [12/100] loss=2.817, top-1=68.800 (68.800), Train(bp) top-1 62.500, Train loss 3.175	R224-W0-D4-E6-K7 (68.800), 
+Valid(bp) [13/100] loss=2.758, top-1=70.500 (70.500), Train(bp) top-1 62.300, Train loss 3.163	R224-W0-D4-E6-K7 (70.500), 
+Valid(bp) [14/100] loss=2.689, top-1=71.600 (71.600), Train(bp) top-1 63.800, Train loss 3.084	R224-W0-D4-E6-K7 (71.600), 
+Valid(bp) [15/100] loss=2.728, top-1=70.900 (71.600), Train(bp) top-1 63.700, Train loss 3.094	R224-W0-D4-E6-K7 (70.900), 
+Valid(bp) [16/100] loss=2.633, top-1=71.500 (71.600), Train(bp) top-1 65.200, Train loss 3.063	R224-W0-D4-E6-K7 (71.500), 
+Valid(bp) [17/100] loss=2.627, top-1=71.800 (71.800), Train(bp) top-1 66.200, Train loss 3.001	R224-W0-D4-E6-K7 (71.800), 
+Valid(bp) [18/100] loss=2.573, top-1=73.200 (73.200), Train(bp) top-1 66.900, Train loss 2.929	R224-W0-D4-E6-K7 (73.200), 
+Valid(bp) [19/100] loss=2.531, top-1=73.500 (73.500), Train(bp) top-1 67.400, Train loss 2.904	R224-W0-D4-E6-K7 (73.500), 
+Valid(bp) [20/100] loss=2.549, top-1=72.900 (73.500), Train(bp) top-1 67.600, Train loss 2.862	R224-W0-D4-E6-K7 (72.900), 
+Valid(bp) [21/100] loss=2.540, top-1=74.200 (74.200), Train(bp) top-1 67.600, Train loss 2.854	R224-W0-D4-E6-K7 (74.200), 
+Valid(bp) [22/100] loss=2.469, top-1=75.300 (75.300), Train(bp) top-1 69.300, Train loss 2.781	R224-W0-D4-E6-K7 (75.300), 
+Valid(bp) [23/100] loss=2.514, top-1=74.400 (75.300), Train(bp) top-1 69.200, Train loss 2.790	R224-W0-D4-E6-K7 (74.400), 
+Valid(bp) [24/100] loss=2.423, top-1=76.000 (76.000), Train(bp) top-1 68.300, Train loss 2.813	R224-W0-D4-E6-K7 (76.000), 
+Valid(bp) [25/100] loss=2.444, top-1=75.600 (76.000), Train(bp) top-1 69.300, Train loss 2.761	R224-W0-D4-E6-K7 (75.600), 
+Valid(bp) [26/100] loss=2.473, top-1=75.900 (76.000), Train(bp) top-1 70.300, Train loss 2.724	R224-W0-D4-E6-K7 (75.900), 
+Valid(bp) [27/100] loss=2.409, top-1=76.900 (76.900), Train(bp) top-1 71.700, Train loss 2.677	R224-W0-D4-E6-K7 (76.900), 
+Valid(bp) [28/100] loss=2.369, top-1=76.500 (76.900), Train(bp) top-1 70.500, Train loss 2.697	R224-W0-D4-E6-K7 (76.500), 
+Valid(bp) [29/100] loss=2.359, top-1=76.700 (76.900), Train(bp) top-1 71.600, Train loss 2.642	R224-W0-D4-E6-K7 (76.700), 
+Valid(bp) [30/100] loss=2.333, top-1=76.900 (76.900), Train(bp) top-1 70.900, Train loss 2.659	R224-W0-D4-E6-K7 (76.900), 
+Valid(bp) [31/100] loss=2.327, top-1=77.700 (77.700), Train(bp) top-1 72.100, Train loss 2.622	R224-W0-D4-E6-K7 (77.700), 
+Valid(bp) [32/100] loss=2.328, top-1=76.900 (77.700), Train(bp) top-1 72.700, Train loss 2.586	R224-W0-D4-E6-K7 (76.900), 
+Valid(bp) [33/100] loss=2.324, top-1=77.900 (77.900), Train(bp) top-1 73.400, Train loss 2.578	R224-W0-D4-E6-K7 (77.900), 
+Valid(bp) [34/100] loss=2.349, top-1=76.500 (77.900), Train(bp) top-1 72.700, Train loss 2.560	R224-W0-D4-E6-K7 (76.500), 
+Valid(bp) [35/100] loss=2.279, top-1=78.000 (78.000), Train(bp) top-1 73.500, Train loss 2.544	R224-W0-D4-E6-K7 (78.000), 
+Valid(bp) [36/100] loss=2.267, top-1=78.500 (78.500), Train(bp) top-1 73.100, Train loss 2.528	R224-W0-D4-E6-K7 (78.500), 
+Valid(bp) [37/100] loss=2.243, top-1=78.500 (78.500), Train(bp) top-1 74.100, Train loss 2.517	R224-W0-D4-E6-K7 (78.500), 
+Valid(bp) [38/100] loss=2.273, top-1=78.300 (78.500), Train(bp) top-1 73.400, Train loss 2.512	R224-W0-D4-E6-K7 (78.300), 
+Valid(bp) [39/100] loss=2.283, top-1=78.200 (78.500), Train(bp) top-1 74.300, Train loss 2.478	R224-W0-D4-E6-K7 (78.200), 
+Valid(bp) [40/100] loss=2.260, top-1=78.000 (78.500), Train(bp) top-1 75.000, Train loss 2.428	R224-W0-D4-E6-K7 (78.000), 
+Valid(bp) [41/100] loss=2.232, top-1=78.800 (78.800), Train(bp) top-1 75.600, Train loss 2.405	R224-W0-D4-E6-K7 (78.800), 
+Valid(bp) [42/100] loss=2.214, top-1=78.400 (78.800), Train(bp) top-1 74.600, Train loss 2.452	R224-W0-D4-E6-K7 (78.400), 
+Valid(bp) [43/100] loss=2.205, top-1=78.700 (78.800), Train(bp) top-1 75.500, Train loss 2.408	R224-W0-D4-E6-K7 (78.700), 
+Valid(bp) [44/100] loss=2.223, top-1=78.900 (78.900), Train(bp) top-1 75.600, Train loss 2.396	R224-W0-D4-E6-K7 (78.900), 
+Valid(bp) [45/100] loss=2.189, top-1=79.200 (79.200), Train(bp) top-1 76.400, Train loss 2.376	R224-W0-D4-E6-K7 (79.200), 
+Valid(bp) [46/100] loss=2.203, top-1=78.600 (79.200), Train(bp) top-1 75.100, Train loss 2.396	R224-W0-D4-E6-K7 (78.600), 
+Valid(bp) [47/100] loss=2.199, top-1=78.700 (79.200), Train(bp) top-1 76.400, Train loss 2.344	R224-W0-D4-E6-K7 (78.700), 
+Valid(bp) [48/100] loss=2.194, top-1=79.200 (79.200), Train(bp) top-1 76.300, Train loss 2.346	R224-W0-D4-E6-K7 (79.200), 
+Valid(bp) [49/100] loss=2.169, top-1=79.800 (79.800), Train(bp) top-1 75.900, Train loss 2.369	R224-W0-D4-E6-K7 (79.800), 
+Valid(bp) [50/100] loss=2.187, top-1=79.000 (79.800), Train(bp) top-1 75.900, Train loss 2.369	R224-W0-D4-E6-K7 (79.000), 
+Valid(bp) [51/100] loss=2.160, top-1=79.700 (79.800), Train(bp) top-1 77.700, Train loss 2.295	R224-W0-D4-E6-K7 (79.700), 
+Valid(bp) [52/100] loss=2.149, top-1=80.400 (80.400), Train(bp) top-1 77.100, Train loss 2.322	R224-W0-D4-E6-K7 (80.400), 
+Valid(bp) [53/100] loss=2.158, top-1=78.900 (80.400), Train(bp) top-1 76.900, Train loss 2.302	R224-W0-D4-E6-K7 (78.900), 
+Valid(bp) [54/100] loss=2.121, top-1=80.000 (80.400), Train(bp) top-1 78.300, Train loss 2.281	R224-W0-D4-E6-K7 (80.000), 
+Valid(bp) [55/100] loss=2.144, top-1=79.600 (80.400), Train(bp) top-1 77.500, Train loss 2.280	R224-W0-D4-E6-K7 (79.600), 
+Valid(bp) [56/100] loss=2.124, top-1=80.000 (80.400), Train(bp) top-1 77.700, Train loss 2.280	R224-W0-D4-E6-K7 (80.000), 
+Valid(bp) [57/100] loss=2.124, top-1=79.600 (80.400), Train(bp) top-1 78.000, Train loss 2.254	R224-W0-D4-E6-K7 (79.600), 
+Valid(bp) [58/100] loss=2.115, top-1=80.100 (80.400), Train(bp) top-1 77.200, Train loss 2.273	R224-W0-D4-E6-K7 (80.100), 
+Valid(bp) [59/100] loss=2.122, top-1=79.800 (80.400), Train(bp) top-1 77.400, Train loss 2.270	R224-W0-D4-E6-K7 (79.800), 
+Valid(bp) [60/100] loss=2.116, top-1=80.000 (80.400), Train(bp) top-1 77.400, Train loss 2.263	R224-W0-D4-E6-K7 (80.000), 
+Valid(bp) [61/100] loss=2.104, top-1=80.200 (80.400), Train(bp) top-1 77.800, Train loss 2.246	R224-W0-D4-E6-K7 (80.200), 
+Valid(bp) [62/100] loss=2.100, top-1=80.300 (80.400), Train(bp) top-1 77.800, Train loss 2.263	R224-W0-D4-E6-K7 (80.300), 
+Valid(bp) [63/100] loss=2.087, top-1=80.600 (80.600), Train(bp) top-1 78.700, Train loss 2.217	R224-W0-D4-E6-K7 (80.600), 
+Valid(bp) [64/100] loss=2.092, top-1=80.300 (80.600), Train(bp) top-1 78.500, Train loss 2.213	R224-W0-D4-E6-K7 (80.300), 
+Valid(bp) [65/100] loss=2.087, top-1=80.400 (80.600), Train(bp) top-1 77.900, Train loss 2.228	R224-W0-D4-E6-K7 (80.400), 
+Valid(bp) [66/100] loss=2.073, top-1=80.300 (80.600), Train(bp) top-1 79.200, Train loss 2.201	R224-W0-D4-E6-K7 (80.300), 
+Valid(bp) [67/100] loss=2.082, top-1=80.300 (80.600), Train(bp) top-1 79.700, Train loss 2.194	R224-W0-D4-E6-K7 (80.300), 
+Valid(bp) [68/100] loss=2.078, top-1=80.500 (80.600), Train(bp) top-1 78.500, Train loss 2.218	R224-W0-D4-E6-K7 (80.500), 
+Valid(bp) [69/100] loss=2.069, top-1=80.900 (80.900), Train(bp) top-1 79.300, Train loss 2.164	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [70/100] loss=2.071, top-1=80.400 (80.900), Train(bp) top-1 79.700, Train loss 2.168	R224-W0-D4-E6-K7 (80.400), 
+Valid(bp) [71/100] loss=2.072, top-1=80.300 (80.900), Train(bp) top-1 79.300, Train loss 2.159	R224-W0-D4-E6-K7 (80.300), 
+Valid(bp) [72/100] loss=2.054, top-1=80.500 (80.900), Train(bp) top-1 80.700, Train loss 2.110	R224-W0-D4-E6-K7 (80.500), 
+Valid(bp) [73/100] loss=2.063, top-1=80.400 (80.900), Train(bp) top-1 79.800, Train loss 2.167	R224-W0-D4-E6-K7 (80.400), 
+Valid(bp) [74/100] loss=2.056, top-1=80.700 (80.900), Train(bp) top-1 80.500, Train loss 2.135	R224-W0-D4-E6-K7 (80.700), 
+Valid(bp) [75/100] loss=2.055, top-1=80.700 (80.900), Train(bp) top-1 79.100, Train loss 2.171	R224-W0-D4-E6-K7 (80.700), 
+Valid(bp) [76/100] loss=2.048, top-1=80.500 (80.900), Train(bp) top-1 80.000, Train loss 2.142	R224-W0-D4-E6-K7 (80.500), 
+Valid(bp) [77/100] loss=2.051, top-1=80.700 (80.900), Train(bp) top-1 80.200, Train loss 2.129	R224-W0-D4-E6-K7 (80.700), 
+Valid(bp) [78/100] loss=2.045, top-1=80.900 (80.900), Train(bp) top-1 79.400, Train loss 2.147	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [79/100] loss=2.043, top-1=80.900 (80.900), Train(bp) top-1 80.200, Train loss 2.126	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [80/100] loss=2.052, top-1=80.600 (80.900), Train(bp) top-1 80.600, Train loss 2.108	R224-W0-D4-E6-K7 (80.600), 
+Valid(bp) [81/100] loss=2.042, top-1=80.800 (80.900), Train(bp) top-1 80.400, Train loss 2.110	R224-W0-D4-E6-K7 (80.800), 
+Valid(bp) [82/100] loss=2.042, top-1=80.400 (80.900), Train(bp) top-1 80.000, Train loss 2.142	R224-W0-D4-E6-K7 (80.400), 
+Valid(bp) [83/100] loss=2.042, top-1=80.600 (80.900), Train(bp) top-1 80.700, Train loss 2.112	R224-W0-D4-E6-K7 (80.600), 
+Valid(bp) [84/100] loss=2.047, top-1=80.500 (80.900), Train(bp) top-1 81.000, Train loss 2.103	R224-W0-D4-E6-K7 (80.500), 
+Valid(bp) [85/100] loss=2.039, top-1=80.900 (80.900), Train(bp) top-1 80.900, Train loss 2.089	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [86/100] loss=2.039, top-1=80.900 (80.900), Train(bp) top-1 80.400, Train loss 2.119	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [87/100] loss=2.037, top-1=80.700 (80.900), Train(bp) top-1 79.900, Train loss 2.134	R224-W0-D4-E6-K7 (80.700), 
+Valid(bp) [88/100] loss=2.040, top-1=80.700 (80.900), Train(bp) top-1 81.300, Train loss 2.090	R224-W0-D4-E6-K7 (80.700), 
+Valid(bp) [89/100] loss=2.038, top-1=80.700 (80.900), Train(bp) top-1 80.400, Train loss 2.112	R224-W0-D4-E6-K7 (80.700), 
+Valid(bp) [90/100] loss=2.038, top-1=80.900 (80.900), Train(bp) top-1 80.800, Train loss 2.103	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [91/100] loss=2.041, top-1=80.900 (80.900), Train(bp) top-1 80.800, Train loss 2.104	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [92/100] loss=2.041, top-1=80.900 (80.900), Train(bp) top-1 80.700, Train loss 2.100	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [93/100] loss=2.040, top-1=80.800 (80.900), Train(bp) top-1 80.900, Train loss 2.117	R224-W0-D4-E6-K7 (80.800), 
+Valid(bp) [94/100] loss=2.038, top-1=80.900 (80.900), Train(bp) top-1 81.300, Train loss 2.080	R224-W0-D4-E6-K7 (80.900), 
+Valid(bp) [95/100] loss=2.038, top-1=81.000 (81.000), Train(bp) top-1 80.900, Train loss 2.078	R224-W0-D4-E6-K7 (81.000), 
+Valid(bp) [96/100] loss=2.037, top-1=81.000 (81.000), Train(bp) top-1 81.400, Train loss 2.078	R224-W0-D4-E6-K7 (81.000), 
+Valid(bp) [97/100] loss=2.037, top-1=81.000 (81.000), Train(bp) top-1 80.100, Train loss 2.095	R224-W0-D4-E6-K7 (81.000), 
+Valid(bp) [98/100] loss=2.037, top-1=81.000 (81.000), Train(bp) top-1 81.400, Train loss 2.071	R224-W0-D4-E6-K7 (81.000), 
+Valid(bp) [99/100] loss=2.037, top-1=81.000 (81.000), Train(bp) top-1 80.200, Train loss 2.117	R224-W0-D4-E6-K7 (81.000), 
+Valid(bp) [100/100] loss=2.037, top-1=81.000 (81.000), Train(bp) top-1 80.500, Train loss 2.122	R224-W0-D4-E6-K7 (81.000), 
+Valid(bp) [-4/100] loss=4.492, top-1=16.600 (16.600), Train(bp) top-1 13.100, Train loss 4.966	R224-W0-D4-E6-K7 (33.0), (33.2), (30.7), (28.3), (29.3), (26.6), (16.6)  
+Valid(bp) [-3/100] loss=4.313, top-1=22.300 (22.300), Train(bp) top-1 18.900, Train loss 4.708	R224-W0-D4-E6-K7 (38.3), (36.3), (40.2), (40.3), (37.3), (39.7), (22.3)  
+Valid(bp) [-2/100] loss=4.161, top-1=33.200 (33.200), Train(bp) top-1 25.100, Train loss 4.590	R224-W0-D4-E6-K7 (36.6), (38.5), (44.6), (46.4), (43.9), (46.4), (33.2)  
+Valid(bp) [-1/100] loss=3.940, top-1=42.000 (42.000), Train(bp) top-1 34.100, Train loss 4.476	R224-W0-D4-E6-K7 (37.7), (45.0), (49.7), (51.6), (50.8), (52.3), (42.0)  
+Valid(bp) [0/100] loss=3.679, top-1=46.500 (46.500), Train(bp) top-1 39.100, Train loss 4.358	R224-W0-D4-E6-K7 (39.7), (48.7), (53.0), (54.9), (55.0), (57.0), (46.5)  
+Valid(bp) [1/100] loss=3.581, top-1=49.500 (49.500), Train(bp) top-1 42.900, Train loss 4.122	R224-W0-D4-E6-K7 (36.4), (45.1), (53.7), (57.0), (53.6), (54.4), (49.5)  
+Valid(bp) [2/100] loss=3.556, top-1=53.300 (53.300), Train(bp) top-1 46.300, Train loss 4.057	R224-W0-D4-E6-K7 (42.7), (48.1), (54.9), (57.5), (56.5), (54.7), (53.3)  
+Valid(bp) [3/100] loss=3.578, top-1=54.300 (54.300), Train(bp) top-1 50.000, Train loss 3.904	R224-W0-D4-E6-K7 (37.1), (42.4), (51.3), (56.6), (56.6), (55.8), (54.3)  
+Valid(bp) [4/100] loss=3.324, top-1=58.300 (58.300), Train(bp) top-1 51.200, Train loss 3.761	R224-W0-D4-E6-K7 (37.3), (46.7), (58.5), (60.3), (62.0), (60.4), (58.3)  
+Valid(bp) [5/100] loss=3.261, top-1=59.900 (59.900), Train(bp) top-1 51.200, Train loss 3.874	R224-W0-D4-E6-K7 (36.7), (46.2), (54.9), (60.0), (61.3), (61.6), (59.9)  
+Valid(bp) [6/100] loss=3.070, top-1=62.500 (62.500), Train(bp) top-1 54.100, Train loss 3.624	R224-W0-D4-E6-K7 (42.7), (51.4), (59.1), (64.0), (64.5), (62.6), (62.5)  
+Valid(bp) [7/100] loss=2.973, top-1=62.100 (62.500), Train(bp) top-1 55.300, Train loss 3.501	R224-W0-D4-E6-K7 (40.4), (52.1), (60.8), (63.4), (65.7), (65.7), (62.1)  
+Valid(bp) [8/100] loss=2.986, top-1=64.000 (64.000), Train(bp) top-1 56.600, Train loss 3.465	R224-W0-D4-E6-K7 (43.5), (51.6), (60.4), (64.1), (65.4), (64.5), (64.0)  
+Valid(bp) [9/100] loss=2.840, top-1=65.800 (65.800), Train(bp) top-1 58.500, Train loss 3.391	R224-W0-D4-E6-K7 (40.8), (54.6), (62.8), (66.8), (68.6), (68.4), (65.8)  
+Valid(bp) [10/100] loss=2.860, top-1=66.800 (66.800), Train(bp) top-1 59.600, Train loss 3.292	R224-W0-D4-E6-K7 (42.6), (53.4), (63.4), (67.2), (67.4), (67.2), (66.8)  
+Valid(bp) [11/100] loss=2.791, top-1=67.700 (67.700), Train(bp) top-1 62.000, Train loss 3.166	R224-W0-D4-E6-K7 (44.2), (53.9), (62.1), (66.6), (68.4), (68.5), (67.7)  
+Valid(bp) [12/100] loss=2.740, top-1=69.800 (69.800), Train(bp) top-1 63.000, Train loss 3.118	R224-W0-D4-E6-K7 (43.4), (56.1), (65.1), (69.5), (69.5), (69.5), (69.8)  
+Valid(bp) [13/100] loss=2.771, top-1=69.500 (69.800), Train(bp) top-1 61.900, Train loss 3.165	R224-W0-D4-E6-K7 (45.3), (57.4), (64.6), (68.6), (69.8), (69.6), (69.5)  
+Valid(bp) [14/100] loss=2.645, top-1=71.900 (71.900), Train(bp) top-1 62.600, Train loss 3.127	R224-W0-D4-E6-K7 (43.4), (55.8), (66.0), (71.0), (71.8), (71.7), (71.9)  
+Valid(bp) [15/100] loss=2.736, top-1=71.700 (71.900), Train(bp) top-1 64.200, Train loss 3.086	R224-W0-D4-E6-K7 (42.1), (50.4), (61.7), (69.4), (69.8), (70.3), (71.7)  
+Valid(bp) [16/100] loss=2.609, top-1=71.300 (71.900), Train(bp) top-1 65.300, Train loss 3.042	R224-W0-D4-E6-K7 (44.1), (57.0), (67.1), (71.4), (72.8), (72.2), (71.3)  
+Valid(bp) [17/100] loss=2.551, top-1=73.800 (73.800), Train(bp) top-1 65.700, Train loss 3.011	R224-W0-D4-E6-K7 (41.8), (57.2), (67.4), (72.3), (73.7), (73.7), (73.8)  
+Valid(bp) [18/100] loss=2.525, top-1=73.800 (73.800), Train(bp) top-1 67.200, Train loss 2.911	R224-W0-D4-E6-K7 (46.5), (59.0), (67.4), (72.9), (73.2), (73.4), (73.8)  
+Valid(bp) [19/100] loss=2.501, top-1=74.800 (74.800), Train(bp) top-1 66.600, Train loss 2.899	R224-W0-D4-E6-K7 (44.5), (59.8), (68.7), (72.3), (74.1), (73.7), (74.8)  
+Valid(bp) [20/100] loss=2.584, top-1=73.000 (74.800), Train(bp) top-1 66.000, Train loss 2.946	R224-W0-D4-E6-K7 (43.0), (57.5), (67.8), (71.4), (73.1), (73.0), (73.0)  
+Valid(bp) [21/100] loss=2.534, top-1=74.100 (74.800), Train(bp) top-1 66.500, Train loss 2.911	R224-W0-D4-E6-K7 (45.2), (58.5), (67.9), (71.9), (73.6), (74.3), (74.1)  
+Valid(bp) [22/100] loss=2.471, top-1=75.300 (75.300), Train(bp) top-1 68.800, Train loss 2.831	R224-W0-D4-E6-K7 (47.8), (61.8), (70.4), (73.5), (75.1), (75.7), (75.3)  
+Valid(bp) [23/100] loss=2.491, top-1=73.800 (75.300), Train(bp) top-1 69.400, Train loss 2.782	R224-W0-D4-E6-K7 (46.0), (60.4), (70.6), (73.4), (74.8), (74.9), (73.8)  
+Valid(bp) [24/100] loss=2.428, top-1=75.100 (75.300), Train(bp) top-1 68.600, Train loss 2.791	R224-W0-D4-E6-K7 (47.4), (61.5), (70.5), (73.6), (74.4), (74.9), (75.1)  
+Valid(bp) [25/100] loss=2.432, top-1=75.500 (75.500), Train(bp) top-1 69.900, Train loss 2.771	R224-W0-D4-E6-K7 (46.2), (61.2), (69.7), (72.8), (75.2), (75.0), (75.5)  
+Valid(bp) [26/100] loss=2.440, top-1=74.900 (75.500), Train(bp) top-1 70.800, Train loss 2.683	R224-W0-D4-E6-K7 (46.9), (60.2), (68.7), (73.0), (75.0), (74.6), (74.9)  
+Valid(bp) [27/100] loss=2.366, top-1=76.300 (76.300), Train(bp) top-1 71.100, Train loss 2.645	R224-W0-D4-E6-K7 (48.2), (61.0), (70.4), (75.3), (76.7), (76.8), (76.3)  
+Valid(bp) [28/100] loss=2.349, top-1=76.200 (76.300), Train(bp) top-1 71.000, Train loss 2.692	R224-W0-D4-E6-K7 (48.1), (61.7), (71.7), (75.2), (76.5), (76.4), (76.2)  
+Valid(bp) [29/100] loss=2.368, top-1=75.900 (76.300), Train(bp) top-1 72.100, Train loss 2.631	R224-W0-D4-E6-K7 (46.3), (60.7), (71.3), (74.9), (76.1), (76.4), (75.9)  
+Valid(bp) [30/100] loss=2.330, top-1=76.800 (76.800), Train(bp) top-1 71.300, Train loss 2.646	R224-W0-D4-E6-K7 (45.4), (62.9), (72.1), (75.5), (76.6), (76.9), (76.8)  
+Valid(bp) [31/100] loss=2.359, top-1=76.700 (76.800), Train(bp) top-1 72.100, Train loss 2.617	R224-W0-D4-E6-K7 (47.3), (61.8), (72.1), (74.1), (76.8), (76.9), (76.7)  
+Valid(bp) [32/100] loss=2.327, top-1=77.100 (77.100), Train(bp) top-1 72.600, Train loss 2.587	R224-W0-D4-E6-K7 (49.5), (64.5), (72.3), (75.4), (76.9), (76.6), (77.1)  
+Valid(bp) [33/100] loss=2.302, top-1=77.600 (77.600), Train(bp) top-1 73.300, Train loss 2.568	R224-W0-D4-E6-K7 (47.4), (63.2), (72.8), (76.5), (77.5), (77.3), (77.6)  
+Valid(bp) [34/100] loss=2.348, top-1=76.700 (77.600), Train(bp) top-1 72.900, Train loss 2.558	R224-W0-D4-E6-K7 (49.1), (62.9), (71.5), (75.8), (76.8), (76.6), (76.7)  
+Valid(bp) [35/100] loss=2.281, top-1=77.700 (77.700), Train(bp) top-1 72.900, Train loss 2.560	R224-W0-D4-E6-K7 (50.1), (63.5), (73.3), (77.1), (78.2), (77.7), (77.7)  
+Valid(bp) [36/100] loss=2.249, top-1=78.600 (78.600), Train(bp) top-1 73.600, Train loss 2.512	R224-W0-D4-E6-K7 (49.0), (64.1), (72.6), (78.0), (78.9), (78.7), (78.6)  
+Valid(bp) [37/100] loss=2.245, top-1=78.200 (78.600), Train(bp) top-1 73.500, Train loss 2.504	R224-W0-D4-E6-K7 (48.7), (63.8), (73.8), (77.9), (78.9), (78.7), (78.2)  
+Valid(bp) [38/100] loss=2.278, top-1=78.100 (78.600), Train(bp) top-1 74.300, Train loss 2.491	R224-W0-D4-E6-K7 (48.4), (63.9), (72.7), (77.1), (77.9), (78.0), (78.1)  
+Valid(bp) [39/100] loss=2.252, top-1=78.300 (78.600), Train(bp) top-1 73.800, Train loss 2.481	R224-W0-D4-E6-K7 (51.1), (64.3), (72.6), (77.3), (78.6), (78.5), (78.3)  
+Valid(bp) [40/100] loss=2.254, top-1=78.200 (78.600), Train(bp) top-1 75.200, Train loss 2.421	R224-W0-D4-E6-K7 (49.8), (65.5), (73.6), (77.8), (78.6), (78.3), (78.2)  
+Valid(bp) [41/100] loss=2.213, top-1=78.500 (78.600), Train(bp) top-1 74.800, Train loss 2.418	R224-W0-D4-E6-K7 (48.5), (65.1), (74.4), (77.6), (79.1), (79.1), (78.5)  
+Valid(bp) [42/100] loss=2.212, top-1=78.800 (78.800), Train(bp) top-1 75.200, Train loss 2.416	R224-W0-D4-E6-K7 (50.4), (64.7), (73.7), (78.3), (78.8), (78.5), (78.8)  
+Valid(bp) [43/100] loss=2.203, top-1=78.800 (78.800), Train(bp) top-1 75.400, Train loss 2.430	R224-W0-D4-E6-K7 (50.7), (64.7), (74.8), (77.8), (78.0), (79.3), (78.8)  
+Valid(bp) [44/100] loss=2.199, top-1=79.000 (79.000), Train(bp) top-1 75.000, Train loss 2.396	R224-W0-D4-E6-K7 (50.5), (65.3), (75.0), (78.2), (78.9), (79.3), (79.0)  
+Valid(bp) [45/100] loss=2.192, top-1=79.000 (79.000), Train(bp) top-1 75.800, Train loss 2.380	R224-W0-D4-E6-K7 (50.8), (66.2), (74.7), (77.4), (78.6), (78.7), (79.0)  
+Valid(bp) [46/100] loss=2.183, top-1=80.000 (80.000), Train(bp) top-1 75.300, Train loss 2.407	R224-W0-D4-E6-K7 (51.1), (66.1), (73.9), (78.0), (79.4), (79.4), (80.0)  
+Valid(bp) [47/100] loss=2.160, top-1=80.000 (80.000), Train(bp) top-1 76.400, Train loss 2.353	R224-W0-D4-E6-K7 (52.9), (66.8), (75.3), (78.5), (79.7), (79.9), (80.0)  
+Valid(bp) [48/100] loss=2.156, top-1=79.700 (80.000), Train(bp) top-1 76.500, Train loss 2.345	R224-W0-D4-E6-K7 (51.9), (66.4), (75.3), (78.8), (79.4), (79.8), (79.7)  
+Valid(bp) [49/100] loss=2.151, top-1=80.000 (80.000), Train(bp) top-1 76.700, Train loss 2.365	R224-W0-D4-E6-K7 (52.1), (66.8), (76.0), (79.1), (80.1), (80.0), (80.0)  
+Valid(bp) [50/100] loss=2.146, top-1=79.900 (80.000), Train(bp) top-1 76.000, Train loss 2.351	R224-W0-D4-E6-K7 (53.2), (65.4), (76.1), (78.4), (80.6), (80.3), (79.9)  
+Valid(bp) [51/100] loss=2.151, top-1=79.900 (80.000), Train(bp) top-1 77.600, Train loss 2.281	R224-W0-D4-E6-K7 (52.4), (66.8), (75.5), (78.9), (80.0), (80.4), (79.9)  
+Valid(bp) [52/100] loss=2.150, top-1=80.000 (80.000), Train(bp) top-1 76.600, Train loss 2.334	R224-W0-D4-E6-K7 (52.3), (67.6), (75.4), (78.9), (80.0), (80.3), (80.0)  
+Valid(bp) [53/100] loss=2.140, top-1=79.900 (80.000), Train(bp) top-1 77.000, Train loss 2.299	R224-W0-D4-E6-K7 (52.8), (67.0), (75.3), (79.4), (80.6), (80.5), (79.9)  
+Valid(bp) [54/100] loss=2.125, top-1=80.400 (80.400), Train(bp) top-1 78.100, Train loss 2.273	R224-W0-D4-E6-K7 (53.6), (67.4), (76.0), (79.8), (80.5), (80.5), (80.4)  
+Valid(bp) [55/100] loss=2.128, top-1=79.800 (80.400), Train(bp) top-1 77.900, Train loss 2.268	R224-W0-D4-E6-K7 (54.0), (67.4), (75.4), (78.7), (80.1), (80.4), (79.8)  
+Valid(bp) [56/100] loss=2.113, top-1=80.700 (80.700), Train(bp) top-1 77.500, Train loss 2.274	R224-W0-D4-E6-K7 (53.8), (67.3), (76.3), (79.6), (80.5), (80.9), (80.7)  
+Valid(bp) [57/100] loss=2.116, top-1=80.800 (80.800), Train(bp) top-1 77.900, Train loss 2.251	R224-W0-D4-E6-K7 (53.5), (66.1), (76.0), (80.2), (80.7), (81.2), (80.8)  
+Valid(bp) [58/100] loss=2.111, top-1=80.800 (80.800), Train(bp) top-1 77.300, Train loss 2.286	R224-W0-D4-E6-K7 (54.3), (67.7), (75.8), (79.2), (80.3), (80.8), (80.8)  
+Valid(bp) [59/100] loss=2.123, top-1=80.000 (80.800), Train(bp) top-1 78.300, Train loss 2.254	R224-W0-D4-E6-K7 (54.4), (66.8), (75.9), (79.6), (80.3), (80.7), (80.0)  
+Valid(bp) [60/100] loss=2.118, top-1=80.100 (80.800), Train(bp) top-1 78.600, Train loss 2.256	R224-W0-D4-E6-K7 (54.2), (67.3), (76.5), (80.0), (80.6), (80.2), (80.1)  
+Valid(bp) [61/100] loss=2.098, top-1=80.700 (80.800), Train(bp) top-1 77.700, Train loss 2.261	R224-W0-D4-E6-K7 (54.0), (67.7), (76.3), (79.8), (80.8), (80.9), (80.7)  
+Valid(bp) [62/100] loss=2.094, top-1=80.200 (80.800), Train(bp) top-1 77.900, Train loss 2.253	R224-W0-D4-E6-K7 (53.7), (66.8), (76.8), (79.9), (80.8), (80.9), (80.2)  
+Valid(bp) [63/100] loss=2.065, top-1=80.800 (80.800), Train(bp) top-1 78.200, Train loss 2.226	R224-W0-D4-E6-K7 (54.8), (68.2), (77.0), (80.3), (81.2), (81.3), (80.8)  
+Valid(bp) [64/100] loss=2.091, top-1=80.500 (80.800), Train(bp) top-1 78.800, Train loss 2.212	R224-W0-D4-E6-K7 (54.5), (68.6), (77.1), (80.0), (80.7), (80.7), (80.5)  
+Valid(bp) [65/100] loss=2.085, top-1=80.700 (80.800), Train(bp) top-1 78.700, Train loss 2.224	R224-W0-D4-E6-K7 (54.6), (68.9), (77.2), (80.5), (80.7), (80.8), (80.7)  
+Valid(bp) [66/100] loss=2.073, top-1=80.500 (80.800), Train(bp) top-1 79.500, Train loss 2.192	R224-W0-D4-E6-K7 (54.8), (69.9), (76.9), (80.4), (80.8), (80.9), (80.5)  
+Valid(bp) [67/100] loss=2.062, top-1=81.000 (81.000), Train(bp) top-1 79.700, Train loss 2.186	R224-W0-D4-E6-K7 (55.2), (69.5), (77.3), (80.6), (80.8), (81.5), (81.0)  
+Valid(bp) [68/100] loss=2.065, top-1=80.900 (81.000), Train(bp) top-1 78.800, Train loss 2.207	R224-W0-D4-E6-K7 (55.4), (69.6), (77.8), (80.4), (80.9), (80.8), (80.9)  
+Valid(bp) [69/100] loss=2.062, top-1=80.900 (81.000), Train(bp) top-1 79.100, Train loss 2.177	R224-W0-D4-E6-K7 (55.1), (69.6), (77.7), (81.0), (81.0), (80.9), (80.9)  
+Valid(bp) [70/100] loss=2.052, top-1=81.400 (81.400), Train(bp) top-1 79.000, Train loss 2.184	R224-W0-D4-E6-K7 (55.7), (69.6), (78.1), (81.2), (81.5), (81.3), (81.4)  
+Valid(bp) [71/100] loss=2.052, top-1=81.500 (81.500), Train(bp) top-1 80.500, Train loss 2.149	R224-W0-D4-E6-K7 (54.3), (69.8), (77.8), (81.0), (81.4), (81.8), (81.5)  
+Valid(bp) [72/100] loss=2.045, top-1=81.800 (81.800), Train(bp) top-1 80.200, Train loss 2.123	R224-W0-D4-E6-K7 (55.3), (70.0), (77.8), (80.8), (81.6), (81.8), (81.8)  
+Valid(bp) [73/100] loss=2.051, top-1=81.400 (81.800), Train(bp) top-1 80.400, Train loss 2.153	R224-W0-D4-E6-K7 (55.5), (69.8), (78.0), (80.7), (81.4), (81.4), (81.4)  
+Valid(bp) [74/100] loss=2.048, top-1=81.000 (81.800), Train(bp) top-1 80.700, Train loss 2.120	R224-W0-D4-E6-K7 (55.1), (70.3), (78.1), (81.2), (81.3), (81.1), (81.0)  
+Valid(bp) [75/100] loss=2.046, top-1=81.000 (81.800), Train(bp) top-1 79.200, Train loss 2.169	R224-W0-D4-E6-K7 (55.4), (69.8), (78.0), (80.9), (81.5), (81.8), (81.0)  
+Valid(bp) [76/100] loss=2.044, top-1=81.200 (81.800), Train(bp) top-1 80.300, Train loss 2.148	R224-W0-D4-E6-K7 (56.4), (69.7), (78.0), (81.0), (81.6), (81.9), (81.2)  
+Valid(bp) [77/100] loss=2.042, top-1=81.300 (81.800), Train(bp) top-1 79.900, Train loss 2.130	R224-W0-D4-E6-K7 (56.3), (70.2), (78.4), (81.2), (81.5), (81.8), (81.3)  
+Valid(bp) [78/100] loss=2.032, top-1=81.300 (81.800), Train(bp) top-1 79.500, Train loss 2.148	R224-W0-D4-E6-K7 (56.6), (70.2), (78.6), (81.2), (81.8), (81.8), (81.3)  
+Valid(bp) [79/100] loss=2.038, top-1=81.300 (81.800), Train(bp) top-1 80.600, Train loss 2.123	R224-W0-D4-E6-K7 (56.5), (70.1), (78.3), (81.2), (81.5), (81.6), (81.3)  
+Valid(bp) [80/100] loss=2.040, top-1=81.200 (81.800), Train(bp) top-1 80.100, Train loss 2.123	R224-W0-D4-E6-K7 (56.4), (70.0), (78.1), (80.8), (81.2), (81.2), (81.2)  
+Valid(bp) [81/100] loss=2.033, top-1=81.400 (81.800), Train(bp) top-1 80.300, Train loss 2.115	R224-W0-D4-E6-K7 (56.1), (70.2), (78.2), (81.2), (81.7), (81.8), (81.4)  
+Valid(bp) [82/100] loss=2.036, top-1=81.400 (81.800), Train(bp) top-1 80.500, Train loss 2.131	R224-W0-D4-E6-K7 (56.7), (70.3), (77.8), (81.2), (81.7), (81.4), (81.4)  
+Valid(bp) [83/100] loss=2.036, top-1=81.400 (81.800), Train(bp) top-1 81.300, Train loss 2.103	R224-W0-D4-E6-K7 (56.1), (70.5), (78.2), (81.4), (81.4), (81.5), (81.4)  
+Valid(bp) [84/100] loss=2.035, top-1=81.500 (81.800), Train(bp) top-1 80.800, Train loss 2.100	R224-W0-D4-E6-K7 (55.7), (70.5), (78.1), (81.4), (81.5), (81.8), (81.5)  
+Valid(bp) [85/100] loss=2.026, top-1=81.500 (81.800), Train(bp) top-1 80.900, Train loss 2.093	R224-W0-D4-E6-K7 (56.7), (70.6), (78.6), (81.5), (81.5), (81.7), (81.5)  
+Valid(bp) [86/100] loss=2.028, top-1=81.300 (81.800), Train(bp) top-1 80.500, Train loss 2.116	R224-W0-D4-E6-K7 (56.6), (70.5), (78.5), (81.4), (81.5), (81.6), (81.3)  
+Valid(bp) [87/100] loss=2.028, top-1=81.400 (81.800), Train(bp) top-1 80.000, Train loss 2.130	R224-W0-D4-E6-K7 (56.8), (70.6), (78.5), (81.4), (81.5), (81.8), (81.4)  
+Valid(bp) [88/100] loss=2.024, top-1=81.400 (81.800), Train(bp) top-1 81.900, Train loss 2.089	R224-W0-D4-E6-K7 (56.6), (70.5), (78.4), (81.5), (81.8), (81.9), (81.4)  
+Valid(bp) [89/100] loss=2.026, top-1=81.400 (81.800), Train(bp) top-1 80.600, Train loss 2.107	R224-W0-D4-E6-K7 (56.3), (70.8), (78.4), (81.4), (81.9), (81.7), (81.4)  
+Valid(bp) [90/100] loss=2.025, top-1=81.200 (81.800), Train(bp) top-1 80.200, Train loss 2.111	R224-W0-D4-E6-K7 (56.5), (70.6), (78.3), (81.6), (81.6), (81.8), (81.2)  
+Valid(bp) [91/100] loss=2.026, top-1=81.300 (81.800), Train(bp) top-1 80.600, Train loss 2.113	R224-W0-D4-E6-K7 (56.5), (70.4), (78.1), (81.4), (81.7), (81.6), (81.3)  
+Valid(bp) [92/100] loss=2.026, top-1=81.400 (81.800), Train(bp) top-1 80.200, Train loss 2.105	R224-W0-D4-E6-K7 (56.5), (70.5), (78.0), (81.3), (81.7), (81.8), (81.4)  
+Valid(bp) [93/100] loss=2.025, top-1=81.600 (81.800), Train(bp) top-1 80.500, Train loss 2.128	R224-W0-D4-E6-K7 (56.4), (70.5), (78.0), (81.5), (81.8), (81.7), (81.6)  
+Valid(bp) [94/100] loss=2.024, top-1=81.500 (81.800), Train(bp) top-1 81.500, Train loss 2.065	R224-W0-D4-E6-K7 (56.6), (70.5), (78.2), (81.6), (81.7), (81.8), (81.5)  
+Valid(bp) [95/100] loss=2.023, top-1=81.600 (81.800), Train(bp) top-1 81.000, Train loss 2.081	R224-W0-D4-E6-K7 (56.9), (70.7), (78.4), (81.6), (81.7), (81.8), (81.6)  
+Valid(bp) [96/100] loss=2.022, top-1=81.500 (81.800), Train(bp) top-1 81.200, Train loss 2.086	R224-W0-D4-E6-K7 (56.8), (70.8), (78.4), (81.6), (81.8), (81.8), (81.5)  
+Valid(bp) [97/100] loss=2.022, top-1=81.600 (81.800), Train(bp) top-1 80.700, Train loss 2.107	R224-W0-D4-E6-K7 (56.8), (70.8), (78.4), (81.6), (81.8), (81.8), (81.6)  
+Valid(bp) [98/100] loss=2.022, top-1=81.600 (81.800), Train(bp) top-1 81.700, Train loss 2.061	R224-W0-D4-E6-K7 (56.9), (70.7), (78.4), (81.6), (81.7), (81.9), (81.6)  
+Valid(bp) [99/100] loss=2.022, top-1=81.600 (81.800), Train(bp) top-1 80.800, Train loss 2.102	R224-W0-D4-E6-K7 (56.8), (70.7), (78.4), (81.6), (81.8), (81.9), (81.6)  
+Valid(bp) [100/100] loss=2.022, top-1=81.600 (81.800), Train(bp) top-1 80.800, Train loss 2.100	R224-W0-D4-E6-K7 (56.9), (70.7), (78.4), (81.6), (81.8), (81.9), (81.6)  

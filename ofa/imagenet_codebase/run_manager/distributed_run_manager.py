@@ -22,7 +22,7 @@ from ofa.imagenet_codebase.utils import get_net_info, cross_entropy_with_label_s
 from ofa.imagenet_codebase.run_manager import RunConfig
 from ofa.imagenet_codebase.data_providers.base_provider import MyRandomResizedCrop
 
-from ofa.utils import accuracy, AverageMeter
+from ofa.utils import accuracy, AverageMeter, calculate_bp_loss, accuracy_bp
 
 
 class DistributedRunManager:
@@ -223,6 +223,67 @@ class DistributedRunManager:
                     })
                     t.update(1)
         return losses.avg.item(), top1.avg.item(), top5.avg.item()
+
+
+    def validate_bp(self, epoch=0, is_test=True, run_str='', net=None, data_loader=None, no_logs=False):
+        if net is None:
+            net = self.net
+        if data_loader is None:
+            if is_test:
+                data_loader = self.run_config.test_loader
+            else:
+                data_loader = self.run_config.valid_loader
+
+        net.eval()
+
+        losses = DistributedMetric('val_loss')
+        # NOTE : modified for aux classifier's Accuracy
+        top1 , top5 = [], []
+        for i in range(len(net.aux_classifiers)):
+            top1.append(DistributedMetric('val_aux'+str(i)+'_top1'))
+            top5.append(DistributedMetric('val_aux'+str(i)+'_top5'))
+
+        top1.append(DistributedMetric('val_main_top1'))
+        top5.append(DistributedMetric('val_main_top5'))
+
+        with torch.no_grad():
+            with tqdm(total=len(data_loader),
+                      desc='Validate Epoch #{} {}'.format(epoch + 1, run_str),
+                      disable=no_logs or not self.is_root) as t:
+                for i, (images, labels) in enumerate(data_loader):
+                    images, labels = images.cuda(), labels.cuda()
+                    # compute output
+                    outputs = net(images)
+                    loss = calculate_bp_loss(self, outputs, labels, 2.0)
+                    # measure accuracy and record loss
+                    acc_bp = accuracy_bp(outputs, labels, topk=(1, 5))
+
+                    acc1_list, acc5_list =[], []
+
+                    for i in range(len(outputs)):
+                        acc1_list.append(acc_bp[2*i][0])
+                        acc5_list.append(acc_bp[2*i+1][0])
+
+                    losses.update(loss, images.size(0))
+
+                    # NOTE : subnet aux accruacy list update (list_mean) - each Batch size
+                    for i in range(len(outputs)):
+                        top1[i].update(acc1_list[i], images.size(0))
+                        top5[i].update(acc5_list[i], images.size(0))
+
+                    top1_list , top5_list = [], []
+                    for i in range(len(outputs)):
+                        top1_list.append(round(top1[i].avg.item(),1))
+                        top5_list.append(round(top5[i].avg.item(),1))
+
+                    t.set_postfix({
+                        'loss': losses.avg.item(),
+                        'top1': top1_list,
+                        'top5': top5_list,
+                        'img_size': images.size(2),
+                    })
+                    t.update(1)
+        return losses.avg.item(), top1_list, top5_list
 
     def validate_all_resolution(self, epoch=0, is_test=True, net=None):
         if net is None:
