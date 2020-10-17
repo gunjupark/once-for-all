@@ -15,7 +15,7 @@ from ofa.imagenet_codebase.utils import make_divisible, int2list
 # TODO : input param will be added (gunju)
 class OFAMobileNetV3_BP(MobileNetV3_BP):
 
-    def __init__(self, n_classes=1000, bn_param=(0.1, 1e-5), dropout_rate=0.1, base_stage_width=None,
+    def __init__(self, n_classes=10, bn_param=(0.1, 1e-5), dropout_rate=0.1, base_stage_width=None,
                  width_mult_list=1.0, ks_list=3, expand_ratio_list=6, depth_list=4):
 
         self.width_mult_list = int2list(width_mult_list, 1)
@@ -137,13 +137,17 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
             classifier = DynamicLinearLayer(
                 in_features_list=last_channel, out_features=n_classes, bias=True, dropout_rate=dropout_rate
             )
-        super(OFAMobileNetV3_BP, self).__init__(first_conv, blocks, final_expand_layer, feature_mix_layer, classifier, aux_classifiers)
+
+        # NOTE: runtime_depth(modified location)
+        self.runtime_depth = [len(block_idx) for block_idx in self.block_group_info]
+
+        super(OFAMobileNetV3_BP, self).__init__(first_conv, blocks, final_expand_layer, feature_mix_layer, classifier, aux_classifiers, self.runtime_depth )
 
         # set bn param
         self.set_bn_param(momentum=bn_param[0], eps=bn_param[1])
 
-        # runtime_depth
-        self.runtime_depth = [len(block_idx) for block_idx in self.block_group_info]
+        # runtime_depth(original location)
+        #self.runtime_depth = [len(block_idx) for block_idx in self.block_group_info]
 
     """ MyNetwork required methods """
 
@@ -342,9 +346,9 @@ class OFAMobileNetV3_BP(MobileNetV3_BP):
                 input_channel = stage_blocks[-1].mobile_inverted_conv.out_channels
             blocks += stage_blocks
 
-            aux_classifiers.append(copy.deepcopy(self.aux_classifiers[stage_id]))
+            aux_classifiers.append(copy.deepcopy(self.aux_classifiers[stage_id+1]))
 
-        _subnet = MobileNetV3_BP(first_conv, blocks, final_expand_layer, feature_mix_layer, classifier, aux_classifiers)
+        _subnet = MobileNetV3_BP(first_conv, blocks, final_expand_layer, feature_mix_layer, classifier, aux_classifiers, self.runtime_depth )
         _subnet.set_bn_param(**self.get_bn_param())
         return _subnet
 

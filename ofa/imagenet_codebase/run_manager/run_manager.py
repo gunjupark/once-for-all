@@ -316,6 +316,41 @@ class RunManager:
         json.dump(self.run_config.config, open(run_save_path, 'w'), indent=4)
         print('Run configs dump to %s' % run_save_path)
 
+    """ calculate Softmax Margin (top1 - top2) """
+
+    def get_sm(self, epoch=0, is_test=True, run_str='', net=None, data_loader=None, no_logs=False):
+        if net is None:
+            net = self.net
+        if not isinstance(net, nn.DataParallel):
+            net = nn.DataParallel(net)
+
+        data_loader = self.run_config.valid_loader
+
+        net.eval()
+        
+        # TODO : SM save format needed
+        sm_list = []
+
+        with torch.no_grad():
+            with tqdm(total=len(data_loader),
+                      desc='Get SM From Valid set ...', disable=no_logs) as t:
+                for i, (images, labels) in enumerate(data_loader):
+                    images, labels = images.to(self.device), labels.to(self.device)
+                    # compute output
+                    outputs = net(images)
+                    
+                    for image_idx in range(len(images)):
+                        tmp_list = []
+                        for i in range(len(outputs)):
+                            sm_tmp = F.softmax(outputs[i], dim=1, _stacklevel=2)
+                            sm = sorted(sm_tmp[image_idx])
+                            tmp_list.append((sm[-1] - sm[-2]).item())
+                        sm_list.append(tmp_list)
+                    t.update(1)
+                    
+        sm_res = np.array(sm_list) 
+        return sm_res
+
     """ train and test """
 
     def validate(self, epoch=0, is_test=True, run_str='', net=None, data_loader=None, no_logs=False):
@@ -358,6 +393,69 @@ class RunManager:
                     })
                     t.update(1)
         return losses.avg, top1.avg, top5.avg
+
+    def validate_bp(self, epoch=0, is_test=True, run_str='', net=None, data_loader=None, no_logs=False):
+        if net is None:
+            net = self.net
+        if not isinstance(net, nn.DataParallel):
+            net == nn.DataParallel(net)
+
+        if data_loader is None:
+            if is_test:
+                data_loader = self.run_config.test_loader
+            else:
+                data_loader = self.run_config.valid_loader
+
+        net.eval()
+
+        losses = AverageMeter()
+        # NOTE : modified for aux classifier's Accuracy
+        top1 , top5 = [], []
+        for i in range(len(net.aux_classifiers+1)):
+            top1.append(AverageMeter())
+            top5.append(AverageMeter())
+
+        with torch.no_grad():
+            with tqdm(total=len(data_loader),
+                      desc='Validate Epoch #{} {}'.format(epoch + 1, run_str),
+                      disable=no_logs) as t:
+                for i, (images, labels) in enumerate(data_loader):
+                    images, labels=images.to(self.device), labels.to(self.device)
+
+                    # compute output
+                    outputs = net(images)
+                    loss = calculate_bp_loss(self, outputs, labels, 2.0)
+                    # measure accuracy and record loss
+                    acc_bp = accuracy_bp(outputs, labels, topk=(1, 5))
+
+                    acc1_list, acc5_list =[], []
+
+                    for i in range(len(outputs)):
+                        acc1_list.append(acc_bp[2*i][0])
+                        acc5_list.append(acc_bp[2*i+1][0])
+
+                    losses.update(loss, images.size(0))
+
+                    # NOTE : subnet aux accruacy list update (list_mean) - each Batch size
+                    for i in range(len(outputs)):
+                        top1[i].update(acc1_list[i], images.size(0))
+                        top5[i].update(acc5_list[i], images.size(0))
+
+                    top1_list , top5_list = [], []
+                    for i in range(len(outputs)):
+                        top1_list.append(round(top1[i].avg.item(),1))
+                        top5_list.append(round(top5[i].avg.item(),1))
+
+                    t.set_postfix({
+                        'loss': losses.avg,
+                        'top1': top1_list,
+                        'top5': top5_list,
+                        'img_size': images.size(2),
+                    })
+                    t.update(1)
+        return losses.avg, top1_list, top5_list
+
+
 
     def validate_all_resolution(self, epoch=0, is_test=True, net=None):
         if net is None:

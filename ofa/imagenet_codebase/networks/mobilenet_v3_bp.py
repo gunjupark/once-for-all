@@ -14,7 +14,7 @@ from ofa.imagenet_codebase.networks.proxyless_nets import MobileInvertedResidual
 
 class MobileNetV3_BP(MyNetwork):
 
-    def __init__(self, first_conv, blocks, final_expand_layer, feature_mix_layer, classifier, aux_classifiers):
+    def __init__(self, first_conv, blocks, final_expand_layer, feature_mix_layer, classifier, aux_classifiers, runtime_depth):
         super(MobileNetV3_BP, self).__init__()
 
         self.first_conv = first_conv
@@ -22,44 +22,57 @@ class MobileNetV3_BP(MyNetwork):
         self.final_expand_layer = final_expand_layer
         self.feature_mix_layer = feature_mix_layer
         self.classifier = classifier
-        self.aux_classifiers = nn.ModuleList(aux_classifiers) # added for bpnet (gunju)
+
+        # added for bpnet (gunju)
+        self.aux_classifiers = nn.ModuleList(aux_classifiers) 
+        self.block_list = runtime_depth
 
 
-    '''
+    
     def forward(self, x):
         x = self.first_conv(x)
-        for block in self.blocks:
-            x = block(x)
+        x = self.blocks[0](x)
+        block_idx = 1
+
+        #first aux
+        output = [self.aux_classifiers[0](torch.flatten(x,1))]
+
+        for stage, n_block in enumerate(self.block_list):
+            for i in range(n_block):
+                x = self.blocks[block_idx+i](x)
+            output.append(self.aux_classifiers[stage+1](torch.flatten(x,1)))
+            block_idx += n_block
+            
         x = self.final_expand_layer(x)
         x = x.mean(3, keepdim=True).mean(2, keepdim=True)  # global average pooling
         x = self.feature_mix_layer(x)
         x = torch.squeeze(x)
-        x = self.classifier(x)
-        return x
-    '''
+        output.append(self.classifier(x))
+        return output
+    
 
 
 #TODO : Original Mobilenet v3 + Branch aux classifier
 
     
-    '''
     @property
     def module_str(self):
-        stage_id = 1
+        block_idx=1
         _str = self.first_conv.module_str + '\n'
-        for idx, block in enumerate(self.blocks):
-            _str += block.module_str + '\n'
-            if idx==0 :
-                _str += aux_classifiers[0].module_str + '\n'
-            elif idx % 4 == 0:
-                _str += aux_classifiers[stage_id].module_str + '\n'
-                stage_id += 1
+        _str += self.blocks[0].module_str + '\n'
+        _str += self.aux_classifiers[0].module_str + '\n'
+        for stage_id , n_block in enumerate(self.block_list):
+            for i in range(n_block):
+                _str += self.blocks[block_idx +i].module_str + '\n'
+            _str += self.aux_classifiers[stage_id+1].module_str + '\n'
+            block_idx += n_block
         _str += self.final_expand_layer.module_str + '\n'
         _str += self.feature_mix_layer.module_str + '\n'
         _str += self.classifier.module_str
         return _str
-    '''
-    '''
+
+
+
     @property
     def config(self):
         return {
@@ -72,8 +85,12 @@ class MobileNetV3_BP(MyNetwork):
             'final_expand_layer': self.final_expand_layer.config,
             'feature_mix_layer': self.feature_mix_layer.config,
             'classifier': self.classifier.config,
+            'aux_classifiers': [
+                aux.config for aux in self.aux_classifiers
+            ],
         }
 
+    '''
     @staticmethod
     def build_from_config(config):
         first_conv = set_layer_from_config(config['first_conv'])

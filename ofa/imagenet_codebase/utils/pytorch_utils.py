@@ -155,11 +155,12 @@ def get_net_info(net, input_shape=(3, 224, 224), measure_latency=None, print_inf
             'val': latency,
             'hist': measured_latency
         }
-    
+    # TODO, NOTE : temporally off -> should be on always
+
     if print_info:
-        print(net)
-        print('Total training params: %.2fM' % (net_info['params'] / 1e6))
-        print('Total FLOPs: %.2fM' % (net_info['flops'] / 1e6))
+        #print(net)
+        #print('Total training params: %.2fM' % (net_info['params'] / 1e6))
+        #print('Total FLOPs: %.2fM' % (net_info['flops'] / 1e6))
         for l_type in latency_types:
             print('Estimated %s latency: %.3fms' % (l_type, net_info['%s latency' % l_type]['val']))
     

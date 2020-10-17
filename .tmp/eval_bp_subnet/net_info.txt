@@ -1,0 +1,31 @@
+{
+    "params": 6757870,
+    "flops": 249247776.0
+}
+3x3_Conv_O16
+(3x3_MBConv1_RELU_O16, Identity)
+200704x10_Linear
+(3x3_MBConv3_RELU_O24, None)
+(3x3_MBConv3_RELU_O24, Identity)
+(5x5_MBConv3_RELU_O24, Identity)
+75264x10_Linear
+(SE_5x5_MBConv6_RELU_O40, None)
+(SE_3x3_MBConv6_RELU_O40, Identity)
+(SE_3x3_MBConv6_RELU_O40, Identity)
+31360x10_Linear
+(7x7_MBConv4_H_SWISH_O80, None)
+(3x3_MBConv4_H_SWISH_O80, Identity)
+(3x3_MBConv6_H_SWISH_O80, Identity)
+15680x10_Linear
+(SE_3x3_MBConv3_H_SWISH_O112, None)
+(SE_3x3_MBConv3_H_SWISH_O112, Identity)
+(SE_3x3_MBConv3_H_SWISH_O112, Identity)
+(SE_5x5_MBConv3_H_SWISH_O112, Identity)
+21952x10_Linear
+(SE_7x7_MBConv6_H_SWISH_O160, None)
+(SE_7x7_MBConv3_H_SWISH_O160, Identity)
+(SE_3x3_MBConv3_H_SWISH_O160, Identity)
+7840x10_Linear
+1x1_Conv_O960
+1x1_Conv_O1280
+1280x10_Linear

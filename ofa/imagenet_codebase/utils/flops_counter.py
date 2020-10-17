@@ -62,11 +62,11 @@ def profile(model, input_size, custom_ops=None):
         elif m_type in register_hooks:
             fn = register_hooks[m_type]
         else:
-            # print("Not implemented for ", m_)
+            #print("Not implemented for ", m_)
             pass
 
         if fn is not None:
-            # print("Register FLOP counter for module %s" % str(m_))
+            #print("Register FLOP counter for module %s" % str(m_))
             _handler = m_.register_forward_hook(fn)
             handler_collection.append(_handler)
 

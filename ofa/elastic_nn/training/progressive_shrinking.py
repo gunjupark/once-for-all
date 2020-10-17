@@ -435,15 +435,19 @@ def supporting_elastic_depth(train_func, run_manager, args, validate_func_dict):
     validate_func_dict['depth_list'] = sorted(dynamic_net.depth_list)
 
     if args.phase == 1:
-        model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D4_E6_K357',
-                                  model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
+        #model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D4_E6_K357', model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
+        model_path = 'exp/s2k/%d/model_best.pth.tar' %hvd.rank()
         load_models(run_manager, dynamic_net, model_path=model_path)
     else:
-        model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D34_E6_K357',
-                                  model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
+        model_path = 'exp/k2kd/phase1/%d/model_best.pth.tar' %hvd.rank()
+        #model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D34_E6_K357',model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
         load_models(run_manager, dynamic_net, model_path=model_path)
     # validate after loading weights
-    run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
+    if args.bp :
+        run_manager.write_log('%.3f\t%s\t%s\t%s' % validate_bp(run_manager, **validate_func_dict), 'valid')
+    else :
+        run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
+
         
     depth_stage_list = dynamic_net.depth_list.copy()
     depth_stage_list.sort(reverse=True)
@@ -465,10 +469,16 @@ def supporting_elastic_depth(train_func, run_manager, args, validate_func_dict):
         dynamic_net.set_constraint(supported_depth, constraint_type='depth')
         
         # train
-        train_func(
-            run_manager, args,
-            lambda _run_manager, epoch, is_test: validate(_run_manager, epoch, is_test, **validate_func_dict)
-        )
+        if args.bp:
+            train_func(
+                run_manager, args,
+                lambda _run_manager, epoch, is_test: validate_bp(_run_manager, epoch, is_test, **validate_func_dict)
+            )
+        else :
+            train_func(
+                run_manager, args,
+                lambda _run_manager, epoch, is_test: validate(_run_manager, epoch, is_test, **validate_func_dict)
+            )
 
         # next stage & reset
         stage_info['stage'] += 1
@@ -479,7 +489,12 @@ def supporting_elastic_depth(train_func, run_manager, args, validate_func_dict):
         run_manager.save_model(model_name='depth_stage%d.pth.tar' % stage_info['stage'])
         json.dump(stage_info, open(stage_info_path, 'w'), indent=4)
         validate_func_dict['depth_list'] = sorted(dynamic_net.depth_list)
-        run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
+        
+        if args.bp :
+            run_manager.write_log('%.3f\t%s\t%s\t%s' % validate_bp(run_manager, **validate_func_dict), 'valid')
+        else : 
+            run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
+
 
 
 def supporting_elastic_expand(train_func, run_manager, args, validate_func_dict):
@@ -498,15 +513,19 @@ def supporting_elastic_expand(train_func, run_manager, args, validate_func_dict)
     validate_func_dict['expand_ratio_list'] = sorted(dynamic_net.expand_ratio_list)
 
     if args.phase == 1:
-        model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D234_E6_K357',
-                                  model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
+        #model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D234_E6_K357', model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
+        model_path = 'exp/k2kd/phase2/%d/model_best.pth.tar' % hvd.rank()
         load_models(run_manager, dynamic_net, model_path=model_path)
     else:
-        model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D234_E46_K357',
-                                  model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
+        #model_path = download_url('https://hanlab.mit.edu/files/OnceForAll/ofa_checkpoints/ofa_D234_E46_K357', model_dir='.torch/ofa_checkpoints/%d' % hvd.rank())
+        model_path = 'exp/kd2kdw/phase1/%d/model_best.pth.tar' % hvd.rank()
         load_models(run_manager, dynamic_net, model_path=model_path)
     dynamic_net.re_organize_middle_weights()
-    run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
+
+    if args.bp :
+        run_manager.write_log('%.3f\t%s\t%s\t%s' % validate_bp(run_manager, **validate_func_dict), 'valid')
+    else :
+        run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
     
     expand_stage_list = dynamic_net.expand_ratio_list.copy()
     expand_stage_list.sort(reverse=True)
@@ -528,10 +547,17 @@ def supporting_elastic_expand(train_func, run_manager, args, validate_func_dict)
         dynamic_net.set_constraint(supported_expand, constraint_type='expand_ratio')
 
         # train
-        train_func(
-            run_manager, args,
-            lambda _run_manager, epoch, is_test: validate(_run_manager, epoch, is_test, **validate_func_dict)
-        )
+        if args.bp:
+            train_func(
+                run_manager, args,
+                lambda _run_manager, epoch, is_test: validate_bp(_run_manager, epoch, is_test, **validate_func_dict)
+            )
+        else : 
+            train_func(
+                run_manager, args,
+                lambda _run_manager, epoch, is_test: validate(_run_manager, epoch, is_test, **validate_func_dict)
+            )
+
 
         # next stage & reset
         stage_info['stage'] += 1
@@ -545,4 +571,7 @@ def supporting_elastic_expand(train_func, run_manager, args, validate_func_dict)
         run_manager.save_model(model_name='expand_stage%d.pth.tar' % stage_info['stage'])
         json.dump(stage_info, open(stage_info_path, 'w'), indent=4)
         validate_func_dict['expand_ratio_list'] = sorted(dynamic_net.expand_ratio_list)
-        run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
+        if args.bp :
+            run_manager.write_log('%.3f\t%s\t%s\t%s' % validate_bp(run_manager, **validate_func_dict), 'valid')
+        else:
+            run_manager.write_log('%.3f\t%.3f\t%.3f\t%s' % validate(run_manager, **validate_func_dict), 'valid')
